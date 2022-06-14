@@ -4,6 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoard from './screens/OnBoard';
 import Login from './screens/Login';
+import Register from './screens/Register';
+import Tabs from './navigation/Tabs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect}from 'react';
 
@@ -43,6 +45,8 @@ export default function App() {
 //       <Stack.Navigator initialRouteName="OnBoard">
 //         <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
 //         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          // <Stack.Screen name="Register" component={Register} options={{ headerShown: false }}/>
+          // <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
 //       </Stack.Navigator>
 //     </NavigationContainer>
 //   );
@@ -57,7 +61,9 @@ export default function App() {
 //       <StatusBar hidden />
 //       <Stack.Navigator initialRouteName="Login">
 //       <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-//         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+//        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          // <Stack.Screen name="Register" component={Register} options={{ headerShown: false }}/>
+          // <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
 //       </Stack.Navigator>
 //     </NavigationContainer>
 //   );
@@ -67,9 +73,12 @@ export default function App() {
 
      return (
       <NavigationContainer>
+      <StatusBar hidden />
         <Stack.Navigator initialRouteName="OnBoard">
           <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+          <Stack.Screen name="Register" component={Register} options={{ headerShown: false }}/>
+          <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     );

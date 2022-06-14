@@ -76,7 +76,7 @@ function Login({navigation}) {
         <Text style={styles.navButtonText}>Forgot Password</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('SignUp')}>
+      <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('Register')}>
         <Text style={styles.navButtonText}>Don't Have An Account? Create Here!</Text>
       </TouchableOpacity>
     
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   forgotButton: {
-    marginVertical: 35,
+    marginVertical: 10,
   },
   navButtonText: {
     fontSize: 14,
