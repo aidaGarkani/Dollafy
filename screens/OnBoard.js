@@ -12,20 +12,20 @@ const OnBoard = ({navigation}) => {
           {
             backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob1.png')}/>,
-            title: 'Organizing your work',
-            subtitle: 'Organize your work to suit your everyday needs'
+            title: 'Keeping Track',
+            subtitle: 'Keeping all your finances in check'
           },
           {
             backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob3.png')}/>,
-            title: 'Meetings',
-            subtitle: 'Get into meetings fast'
+            title: 'Transactions',
+            subtitle: 'Keeping records of transactions'
           },
           {
             backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob2.png')}/>,
-            title: 'Note Taking',
-            subtitle: 'Take notes fast and tidy'
+            title: 'Account Management',
+            subtitle: 'Manage your finances perfectly'
           }
         ]}
       />
