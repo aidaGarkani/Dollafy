@@ -10,19 +10,19 @@ const OnBoard = ({navigation}) => {
           onDone={() => navigation.replace("Login")}
           pages={[
           {
-            backgroundColor: '#94B49F',
+            backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob1.png')}/>,
             title: 'Organizing your work',
             subtitle: 'Organize your work to suit your everyday needs'
           },
           {
-            backgroundColor: '#789395',
+            backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob3.png')}/>,
             title: 'Meetings',
             subtitle: 'Get into meetings fast'
           },
           {
-            backgroundColor: '#B4CFB0',
+            backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob2.png')}/>,
             title: 'Note Taking',
             subtitle: 'Take notes fast and tidy'

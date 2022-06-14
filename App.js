@@ -16,62 +16,62 @@ export default function App() {
   
   // First Lauch Code // 
 
-  const [isFirstLaunch, SetIsFirstLaunch] = React.useState(null);
+//   const [isFirstLaunch, SetIsFirstLaunch] = React.useState(null);
 
-  useEffect(() => {
-    AsyncStorage.getItem('alreadyLauched').then(value => {
-      if(value == null){
-        AsyncStorage.setItem('alreadyLauched', 'true');
-        SetIsFirstLaunch(true);
-      }else{
-        SetIsFirstLaunch(false);
-      }
-    })
-  },[]);
+//   useEffect(() => {
+//     AsyncStorage.getItem('alreadyLauched').then(value => {
+//       if(value == null){
+//         AsyncStorage.setItem('alreadyLauched', 'true');
+//         SetIsFirstLaunch(true);
+//       }else{
+//         SetIsFirstLaunch(false);
+//       }
+//     })
+//   },[]);
 
 
-  // If First Launch Onboarding Starts//
- if(isFirstLaunch == true) 
-  {
+//   // If First Launch Onboarding Starts//
+//  if(isFirstLaunch == true) 
+//   {
 
-    var userid=""
-    var username=""
+//     var userid=""
+//     var username=""
 
-    return (
-      <NavigationContainer>
-      <StatusBar hidden />
-      <Stack.Navigator initialRouteName="OnBoard">
-        <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-  }
-  else   // If not First Launch Login Starts //
-  {
-    var userid=""
-    var username=""
+//     return (
+//       <NavigationContainer>
+//       <StatusBar hidden />
+//       <Stack.Navigator initialRouteName="OnBoard">
+//         <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
+//         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+//   }
+//   else   // If not First Launch Login Starts //
+//   {
+//     var userid=""
+//     var username=""
 
-    return (
-      <NavigationContainer>
-      <StatusBar hidden />
-      <Stack.Navigator initialRouteName="Login">
-      <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-  }
+//     return (
+//       <NavigationContainer>
+//       <StatusBar hidden />
+//       <Stack.Navigator initialRouteName="Login">
+//       <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
+//         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+//       </Stack.Navigator>
+//     </NavigationContainer>
+//   );
+//   }
 
   //Code to show Onboarding
 
-    //  return (
-    //   <NavigationContainer>
-    //     <Stack.Navigator initialRouteName="OnBoard">
-    //       <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-    //       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-    //     </Stack.Navigator>
-    //   </NavigationContainer>
-    // );
+     return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="OnBoard">
+          <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
+          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
 
 }
