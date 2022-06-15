@@ -13,7 +13,7 @@ const OnBoard = ({navigation}) => {
             backgroundColor: '#4FD6B5',
             image: <Image style={styles.picSize} source={require('../assets/images/ob1.png')}/>,
             title: 'Keeping Track',
-            subtitle: 'Keeping all your finances in check'
+            subtitle: 'Keeping all your finances in check !'
           },
           {
             backgroundColor: '#4FD6B5',
