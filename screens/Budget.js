@@ -24,7 +24,7 @@ export default Budget;
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#4FD6B5',
+      backgroundColor: '#FFFFFF',
       alignItems: 'center',
       justifyContent: 'center',
     },
