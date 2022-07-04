@@ -1,45 +1,43 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
 import React, {useState, navigation} from 'react';
-//import Toast from 'react-native-simple-toast';
+import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
-import SocialButton from '../components/SocialButton';
-// import { firebase } from '../config'
-// import Home from '../screens/Home'
+import { firebase } from '../config'
 
 function Login({navigation}) {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-//   const onLoginPress = async () => {
+  const onLoginPress = async () => {
 
-//     await firebase
-//         .auth()
-//         .signInWithEmailAndPassword(email, password)
-//         .then((response) => {
-//             const uid = response.user.uid
-//             const usersRef = firebase.firestore().collection('users')
-//             usersRef
-//                 .doc(uid)
-//                 .get()
-//                 .then(firestoreDocument => {
-//                     if (!firestoreDocument.exists) {
-//                         alert("User does not exist anymore.")
-//                         return;
-//                     }
-//                     const userprofile = firestoreDocument.data()
-//                     Toast.show('Logged In with : ' + email);
-//                     navigation.navigate('Tabs' , {screen: 'Home', params:{name:userprofile.name}})
-//                 })
-//                 .catch(error => {
-//                     alert(error)
-//                 });
-//         })
-//         .catch(error => {
-//             alert(error)
-//         })
-// }
+    await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+            const uid = response.user.uid
+            const usersRef = firebase.firestore().collection('users')
+            usersRef
+                .doc(uid)
+                .get()
+                .then(firestoreDocument => {
+                    if (!firestoreDocument.exists) {
+                        alert("User does not exist anymore.")
+                        return;
+                    }
+                    const userprofile = firestoreDocument.data()
+                    Toast.show('Logged In with : ' + email);
+                    navigation.navigate('Tabs' , {screen: 'Home', params:{name:userprofile.name}})
+                })
+                .catch(error => {
+                    alert(error)
+                });
+        })
+        .catch(error => {
+            alert(error)
+        })
+}
 
 
     return(
@@ -47,7 +45,6 @@ function Login({navigation}) {
       <Image 
       source={require('../assets/images/logo.png')} 
       style={styles.logo}/>  
-      {/* <Text style={styles.text}>Taskcape</Text> */}
       
       <FormInput
       labelValue={email}
@@ -69,8 +66,8 @@ function Login({navigation}) {
 
       <FormButton
         buttonTitle = "Sign In"
-        onPress={() => navigation.navigate('Tabs')}/>
-        {/* onPress={() => onLoginPress()}/> */}
+        // onPress={() => navigation.navigate('Tabs')}/>
+        onPress={() => onLoginPress()}/>
 
       <TouchableOpacity style={styles.forgotButton} onPress={() => alert('Forgot')}>
         <Text style={styles.navButtonText}>Forgot Password</Text>
