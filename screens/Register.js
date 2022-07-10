@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
@@ -11,6 +11,8 @@ export default function SignUp({navigation}) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmpassword, setConfirmPassword] = useState();
+  const address = ''
+  const contact = ''
   
   const onRegisterPress = async () => {
 
@@ -37,7 +39,9 @@ export default function SignUp({navigation}) {
             const data = {
                 id: uid,
                 email,
-                name
+                name,
+                address,
+                contact
             };
             const usersRef = firebase.firestore().collection('users')
             usersRef

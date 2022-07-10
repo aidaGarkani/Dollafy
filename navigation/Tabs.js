@@ -45,22 +45,6 @@ export default function Tabs() {
             </Text>
           </View>
         ) }}/>
-        <Tab.Screen name="Profile" component={Profile} options={{ headerShown: false,
-        tabBarIcon:({focused}) => (
-          <View style={{alignItems:'center', justifyContent:'center', top: 3}}>
-            <Image source={require('../assets/images/profile.png')}
-              resizeMode='contain'
-              style={{
-                width:25,
-                height:25,
-                tintColor: focused ? '#43978D' : '#748c94',
-              }}
-            />
-            <Text style={{color: focused ? '#43978D' : '#748c94', fontSize: 12}}>
-              Profile
-            </Text>
-          </View>
-        ) }} />
         <Tab.Screen name="Settings" component={Settings} options={{ headerShown: false, 
         tabBarIcon:({focused}) => (
           <View style={{alignItems:'center', justifyContent:'center', top: 3}}>
