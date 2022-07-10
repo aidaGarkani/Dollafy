@@ -6,6 +6,7 @@ import OnBoard from './screens/OnBoard';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Tabs from './navigation/Tabs';
+import Profile from './screens/Profile';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, {useEffect}from 'react';
 
@@ -47,6 +48,7 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={Register} options={{ headerShown: false }}/>
           <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -64,6 +66,7 @@ export default function App() {
        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="Register" component={Register} options={{ headerShown: false }}/>
           <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+          <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

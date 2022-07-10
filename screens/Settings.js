@@ -1,25 +1,63 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
-import * as React from 'react';
-// import { firebase } from '../config'
+import { useState, useEffect } from 'react';
+import Settingbtn from '../components/SettingBtn';
+import { firebase } from '../config'
 
 
 // function Home ({ route, navigation }) {
 function Settings ({ navigation }) {
   
 
-//   const user = firebase.auth().currentUser.email;
-//   const {name} = route.params;
+  const [userInfo, setUserInfo] = useState([]);
+
+  const getUserData = async() =>{
+    firebase.firestore()
+    .collection('users')
+    .doc(firebase.auth().currentUser.uid)
+    .get()
+    .then((documentSnapshot) => {
+      if (documentSnapshot.exists){
+        setUserInfo(documentSnapshot.data());
+        console.log(userInfo)
+      } 
+      else{
+       console.log('Error')
+      } 
+      })
+    }
+
+    useEffect(() => {
+      getUserData()
+    }, [])
+  
 
     return(   
       <View style={styles.container}>
       {/* <Text style={styles.welcometxt}>Welcome {name}</Text> */}
       <Text style={styles.welcometxt}>Settings</Text>
-      
-      <Button 
-      onPress={()=> navigation.navigate('Login')}
-      title="LOGOUT"/>
+
+      <View style={styles.userInfoSection}>
+        <View style={{flexDirection: 'row', marginTop: 15}}>
+          <View style={{marginLeft: 20}}>
+            <Text style={[styles.title, {
+              marginTop:15,
+              marginBottom: 5,
+            }]}>{userInfo.name}</Text>
+            <Text style={styles.caption}>{userInfo.email}</Text>
+          </View>
+        </View>
       </View>
 
+      <Settingbtn
+      onPress={()=> navigation.navigate('Profile')}
+      buttonTitle = "Edit Profile" />
+      
+      <Settingbtn 
+      onPress={()=> navigation.navigate('Login')}
+      buttonTitle = "Logout"/>
+
+      </View>
+      
       
     );
     
@@ -41,6 +79,16 @@ export default Settings;
       top: 30,
       paddingLeft:30,
       fontFamily: 'Roboto',
+      fontWeight: 'bold',
+    },
+    userInfoSection: {
+      paddingHorizontal: 30,
+      position: 'absolute',
+      left: 2,
+      top: 60,
+    },
+    title: {
+      fontSize: 24,
       fontWeight: 'bold',
     },
 });

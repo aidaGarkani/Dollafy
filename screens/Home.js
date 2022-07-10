@@ -2,18 +2,15 @@ import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-na
 import * as React from 'react';
 // import { firebase } from '../config'
 
-
-// function Home ({ route, navigation }) {
-function Home ({ navigation }) {
+function Home ({ navigation, route }) {
   
 
-//   const user = firebase.auth().currentUser.email;
-//   const {name} = route.params;
+  const {name} = route.params;
 
     return(   
       <View style={styles.container}>
       {/* <Text style={styles.welcometxt}>Welcome {name}</Text> */}
-      <Text style={styles.welcometxt}>Home</Text>
+      <Text style={styles.welcometxt}>Welcome {name}</Text>
       </View>
     );
     
