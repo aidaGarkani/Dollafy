@@ -1,73 +1,79 @@
-import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
-import React, {useState, navigation} from 'react';
-import Toast from 'react-native-simple-toast';
+import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import React, { useState, navigation, useEffect } from 'react';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { firebase } from '../config'
 
-function Login({navigation}) {
+function Login({ navigation }) {
 
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
+  useEffect(() => {
+    console.log(firebase.auth().currentUser)
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        navigation.navigate('Tabs', { screen: 'Home', params: { name: firebase.auth().currentUser.name } })
+      }
+    });
+  }, []);
+
   const onLoginPress = async () => {
-
     await firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then((response) => {
-            const uid = response.user.uid
-            const usersRef = firebase.firestore().collection('users')
-            usersRef
-                .doc(uid)
-                .get()
-                .then(firestoreDocument => {
-                    if (!firestoreDocument.exists) {
-                        alert("User does not exist anymore.")
-                        return;
-                    }
-                    const userprofile = firestoreDocument.data()
-                    Toast.show('Logged In with : ' + email);
-                    navigation.navigate('Tabs' , {screen: 'Home', params:{name:userprofile.name}})
-                })
-                .catch(error => {
-                    alert(error)
-                });
-        })
-        .catch(error => {
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((response) => {
+        const uid = response.user.uid
+        const usersRef = firebase.firestore().collection('users')
+        usersRef
+          .doc(uid)
+          .get()
+          .then(firestoreDocument => {
+            if (!firestoreDocument.exists) {
+              alert("User does not exist anymore.")
+              return;
+            }
+            const userprofile = firestoreDocument.data()
+            navigation.navigate('Tabs', { screen: 'Home', params: { name: userprofile.name } })
+          })
+          .catch(error => {
             alert(error)
-        })
-}
+          });
+      })
+      .catch(error => {
+        alert(error)
+      })
+  }
 
 
-    return(
-      <View style={styles.container}>
-      <Image 
-      source={require('../assets/images/logo.png')} 
-      style={styles.logo}/>  
-      
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../assets/images/logo.png')}
+        style={styles.logo} />
+
       <FormInput
-      labelValue={email}
-      onChangeText={userEmail => setEmail(userEmail)}
-      placeholderText="Email"
-      iconType="user"
-      keyboardType="email-address"
-      autoCapitalize="none"
-      autoCorrect={false}
+        labelValue={email}
+        onChangeText={userEmail => setEmail(userEmail)}
+        placeholderText="Email"
+        iconType="user"
+        keyboardType="email-address"
+        autoCapitalize="none"
+        autoCorrect={false}
       />
 
       <FormInput
-      labelValue={password}
-      onChangeText={userPassword => setPassword(userPassword)}
-      placeholderText="Password"
-      iconType="lock"
-      secureTextEntry={true}
+        labelValue={password}
+        onChangeText={userPassword => setPassword(userPassword)}
+        placeholderText="Password"
+        iconType="lock"
+        secureTextEntry={true}
       />
 
       <FormButton
-        buttonTitle = "Sign In"
+        buttonTitle="Sign In"
         // onPress={() => navigation.navigate('Tabs')}/>
-        onPress={() => onLoginPress()}/>
+        onPress={() => onLoginPress()} />
 
       <TouchableOpacity style={styles.forgotButton} onPress={() => alert('Forgot')}>
         <Text style={styles.navButtonText}>Forgot Password</Text>
@@ -76,11 +82,11 @@ function Login({navigation}) {
       <TouchableOpacity style={styles.forgotButton} onPress={() => navigation.navigate('Register')}>
         <Text style={styles.navButtonText}>Don't Have An Account? Create Here!</Text>
       </TouchableOpacity>
-    
-      </View>
-    );
-    
-  }
+
+    </View>
+  );
+
+}
 
 export default Login;
 
