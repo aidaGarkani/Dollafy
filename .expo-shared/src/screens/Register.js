@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
-import { firebase } from '../config'
+import { firebase } from '../../../config'
 
 export default function SignUp({ navigation }) {
 

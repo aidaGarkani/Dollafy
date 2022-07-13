@@ -1,5 +1,5 @@
 import React from "react";
-import ExpenseForm from '../ExpenseForm/ExpenseForm'
+import ExpenseForm from './ExpenseForm/ExpenseForm'
 import { View, StyleSheet } from "react-native";
 
 const NewExpense = (props) => {
@@ -22,7 +22,7 @@ export default NewExpense;
 
 const styles = StyleSheet.create({
     newExpense: {
-        backgroundColor: '#a892ee',
+        backgroundColor: 'white',
         padding: '1rem',
         margin: '2rem auto',
         width: '95%',

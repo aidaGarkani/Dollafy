@@ -1,7 +1,7 @@
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import * as React from 'react';
-// import { firebase } from '../config'
-import NewExpense from '../components/NewExpenses/NewExpense/NewExpense';
+import NewExpense from '../components/NewExpenses/NewExpense';
+// import Expenses from '../components/Expenses/Expenses';
 
 const DUMMY_EXPENSES = [
   {
@@ -25,8 +25,7 @@ const DUMMY_EXPENSES = [
   },
 ];
 
-// function Home ({ route, navigation }) {
-function Budget({ navigation }) {
+function Home({ navigation, route }) {
   const [expenses, setExpenses] = React.useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
@@ -35,25 +34,23 @@ function Budget({ navigation }) {
     });
   };
 
-  //   const user = firebase.auth().currentUser.email;
-  //   const {name} = route.params;
-
   return (
     <View style={styles.container}>
       <NewExpense onAddExpense={addExpenseHandler} />
+      {/* <Expenses items={expenses} /> */}
     </View>
   );
 
 }
 
-export default Budget;
+export default Home;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3f3f3f',
     alignItems: 'center',
     padding: '1%',
     maxWidth: '100 %',
   },
 });
+

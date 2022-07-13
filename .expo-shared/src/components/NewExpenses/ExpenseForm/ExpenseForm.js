@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Pressable, StyleSheet, TextComponent } from "react-native";
+import { View, StyleSheet } from "react-native";
+import { Input, Button } from '@ui-kitten/components';
+
 
 const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
-
+    const [date, setDate] = useState(new Date())
+    const [open, setOpen] = useState(false)
 
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -36,31 +39,44 @@ const ExpenseForm = (props) => {
     return <View>
         <View style={styles.newExpenseControls}>
             <View>
-                <Text style={styles.newExpenseControlText}>Title</Text>
-                <TextInput style={styles.newExpenseControlInput}
+                <Input
+                    style={styles.input}
+                    size='medium'
+                    placeholder='Expense Title'
+                    // {...mediumInputState}
                     value={enteredTitle}
                     onChange={titleChangeHandler}
+                    label='Title'
                 />
             </View>
             <View>
-                <Text style={styles.newExpenseControlText}>Amount</Text>
-                <TextInput style={styles.newExpenseControlInput}
+                <Input
+                    style={styles.input}
+                    size='medium'
+                    placeholder='Expense Amount'
+                    // {...mediumInputState}
                     value={enteredAmount}
-                    onChange={amountChangeHandler} />
+                    onChange={amountChangeHandler}
+                    label='Amount'
+                />
+
             </View>
             <View>
-                <Text style={styles.newExpenseControlText}>Date</Text>
-                <TextInput style={styles.newExpenseControlInput}
+                <Input
+                    style={styles.input}
+                    size='medium'
+                    placeholder='Pick a Date'
+                    // {...mediumInputState}
                     value={enteredDate}
-                    onChange={dateChangeHandler} />
+                    onChange={dateChangeHandler}
+                    label='Date'
+                />
             </View>
         </View>
-        <View style={styles.newExpenseActions}>
-            <Pressable style={styles.newExpenseButton} onPress={submitHandler}>
-                <Text style={{ color: 'white' }}>
-                    Add Expanses
-                </Text>
-            </Pressable>
+        <View>
+            <Button style={styles.button} size='small' onClick={submitHandler}>
+                Add Expense
+            </Button>
         </View>
     </View>
 };
@@ -68,17 +84,6 @@ const ExpenseForm = (props) => {
 export default ExpenseForm;
 
 const styles = StyleSheet.create({
-    newExpenseButton: {
-        textAlign: 'center',
-        font: 'inherit',
-        cursor: 'pointer',
-        padding: '1rem ',
-        border: '1px solid #40005d',
-        backgroundColor: '#40005d',
-        color: 'white',
-        borderRadius: '12px',
-        marginRight: ' 1rem',
-    },
     newExpenseControls: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -86,21 +91,22 @@ const styles = StyleSheet.create({
         marginBottom: '1rem',
         textAlign: 'left',
     },
-    newExpenseControlText: {
-        fontWeight: 'bold',
-        marginBottom: '0.5rem',
-        display: 'block',
-    },
-    newExpenseControlInput: {
-        font: 'inherit',
-        padding: '0.5rem',
-        borderRadius: '6px',
-        border: ' 1px solid #ccc',
-        width: ' 95% ',
-        maxWidth: '100 %',
-        backgroundColor: 'white',
-    },
     newExpenseActions: {
         textAlign: 'right',
-    }
+    },
+    input: {
+        marginVertical: 2,
+        borderColor: '#43978D',
+        borderRadius: 20,
+    },
+    button: {
+        marginTop: 10,
+        width: '100%',
+        backgroundColor: '#43978D',
+        padding: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        borderColor: '#43978D'
+    },
 });

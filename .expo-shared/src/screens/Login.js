@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-n
 import React, { useState, navigation, useEffect } from 'react';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
-import { firebase } from '../config'
+import { firebase } from '../../../config'
 
 function Login({ navigation }) {
 
