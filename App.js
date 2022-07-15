@@ -1,5 +1,5 @@
 //import { StatusBar } from 'expo-status-bar';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnBoard from './.expo-shared/src/screens/OnBoard';
@@ -10,7 +10,8 @@ import Profile from './.expo-shared/src/screens/Profile';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +43,7 @@ export default function App() {
 
     return (
       <NavigationContainer>
+        <IconRegistry icons={EvaIconsPack} />
         <ApplicationProvider {...eva} theme={eva.light}>
           <StatusBar hidden />
           <Stack.Navigator initialRouteName="OnBoard">
@@ -63,6 +65,8 @@ export default function App() {
 
     return (
       <NavigationContainer>
+        <IconRegistry icons={EvaIconsPack} />
+
         <ApplicationProvider {...eva} theme={eva.light}>
           <StatusBar hidden />
           <Stack.Navigator initialRouteName="Login">

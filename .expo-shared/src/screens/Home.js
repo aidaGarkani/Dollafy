@@ -1,7 +1,8 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import * as React from 'react';
-import NewExpense from '../components/NewExpenses/NewExpense';
-// import Expenses from '../components/Expenses/Expenses';
+import Expenses from '../components/Expenses/Expenses';
+import NavigationTop from '../components/UI/NavigationTop';
+import ExpensesInfo from '../components/Expenses/ExpensesInfo';
 
 const DUMMY_EXPENSES = [
   {
@@ -23,6 +24,24 @@ const DUMMY_EXPENSES = [
     amount: 450,
     date: new Date(2021, 5, 12),
   },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
+  {
+    id: 'e4',
+    title: 'New Desk (Wooden)',
+    amount: 450,
+    date: new Date(2021, 5, 12),
+  },
 ];
 
 function Home({ navigation, route }) {
@@ -35,10 +54,14 @@ function Home({ navigation, route }) {
   };
 
   return (
-    <View style={styles.container}>
-      <NewExpense onAddExpense={addExpenseHandler} />
-      {/* <Expenses items={expenses} /> */}
-    </View>
+    <ScrollView style={styles.container}>
+      <NavigationTop name={'Home'} />
+      <View style={styles.wrapper}>
+        {/* <NewExpense onAddExpense={addExpenseHandler} /> */}
+        <ExpensesInfo />
+        <Expenses items={expenses} />
+      </View>
+    </ScrollView>
   );
 
 }
@@ -48,9 +71,12 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    padding: '1%',
     maxWidth: '100 %',
   },
+  wrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: '100px'
+  }
 });
 

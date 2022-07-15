@@ -75,11 +75,7 @@ const screenOptions = {
   tabBarStyle: {
     showLabel: false,
     position: 'absolute',
-    bottom: 25,
-    left: 20,
-    right: 20,
     backgroundColor: '#ffffff',
-    borderRadius: 20,
     height: 70,
     elevation: 10,
     shadowOffset: {
@@ -87,7 +83,6 @@ const screenOptions = {
       height: 1,
     },
     shadowColor: '#333',
-    shadowOpacity: .25
   }
 }
 

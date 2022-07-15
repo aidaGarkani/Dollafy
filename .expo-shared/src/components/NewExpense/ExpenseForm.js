@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { Input, Button } from '@ui-kitten/components';
-
+import { Input, Button, Icon } from '@ui-kitten/components';
 
 const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
-    const [date, setDate] = useState(new Date())
-    const [open, setOpen] = useState(false)
+
+    const [date, setDate] = React.useState(new Date());
+
+    const CalendarIcon = (props) => (
+        <Icon {...props} name='calendar' />
+    );
 
     const titleChangeHandler = (event) => {
         setEnteredTitle(event.target.value);
@@ -35,7 +38,6 @@ const ExpenseForm = (props) => {
         setEnteredAmount('');
         setEnteredDate('');
     };
-
     return <View>
         <View style={styles.newExpenseControls}>
             <View>
@@ -62,15 +64,16 @@ const ExpenseForm = (props) => {
 
             </View>
             <View>
-                <Input
-                    style={styles.input}
-                    size='medium'
-                    placeholder='Pick a Date'
-                    // {...mediumInputState}
-                    value={enteredDate}
-                    onChange={dateChangeHandler}
-                    label='Date'
-                />
+                {/* <Layout style={styles.container} level='1'>
+                    <Datepicker
+                        label='Label'
+                        caption='Caption'
+                        placeholder='Pick Date'
+                        date={date}
+                        onSelect={nextDate => setDate(nextDate)}
+                        accessoryRight={CalendarIcon}
+                    />
+                </Layout> */}
             </View>
         </View>
         <View>
@@ -80,8 +83,6 @@ const ExpenseForm = (props) => {
         </View>
     </View>
 };
-
-export default ExpenseForm;
 
 const styles = StyleSheet.create({
     newExpenseControls: {
@@ -99,6 +100,9 @@ const styles = StyleSheet.create({
         borderColor: '#43978D',
         borderRadius: 20,
     },
+    container: {
+        minHeight: 360,
+    },
     button: {
         marginTop: 10,
         width: '100%',
@@ -110,3 +114,5 @@ const styles = StyleSheet.create({
         borderColor: '#43978D'
     },
 });
+
+export default ExpenseForm;

@@ -1,22 +1,17 @@
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import * as React from 'react';
+import React, { useState } from 'react';
+import Card from '../components/UI/Card';
+import { View } from 'react-native';
 
-function Budget({ navigation }) {
+const Budget = (props) => {
+  const [filteredYear, setFilteredYear] = useState('2019');
+
   return (
-    <View style={styles.container}>
+    <View>
+      <Card className='expenses'>
+
+      </Card>
     </View>
   );
-
-}
+};
 
 export default Budget;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#3f3f3f',
-    alignItems: 'center',
-    padding: '1%',
-    maxWidth: '100 %',
-  },
-});
