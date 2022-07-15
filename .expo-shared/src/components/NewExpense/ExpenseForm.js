@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { Input, Button, Icon } from '@ui-kitten/components';
+import { Input, Button, Icon, Datepicker, Select, SelectItem } from '@ui-kitten/components';
+import { useExpenseContext } from "../../Context/ExpensesContext";
+
+const Categories = ['food', 'transportation', 'personal', 'income'];
 
 const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
-    const [enteredDate, setEnteredDate] = useState('');
-
+    const [selectedIndex, setSelectedIndex] = useState();
     const [date, setDate] = React.useState(new Date());
-
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const { addExpense } = useExpenseContext();
+    console.log(useExpenseContext())
     const CalendarIcon = (props) => (
         <Icon {...props} name='calendar' />
     );
@@ -20,32 +24,49 @@ const ExpenseForm = (props) => {
         setEnteredAmount(event.target.value);
     };
 
-    const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
-    };
-
     const submitHandler = (event) => {
-        event.preventDefault();
+        console.log('clicked')
 
         const expenseData = {
             title: enteredTitle,
             amount: +enteredAmount,
-            date: new Date(enteredDate)
+            date: date,
+            Category: selectedCategory
         };
+        addExpense(expenseData);
 
-        props.onSaveExpenseData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
-        setEnteredDate('');
+        setDate('');
+        setSelectedCategory('');
+        setSelectedIndex('');
+        props.setVisibility(false);
     };
+
+    const onSelectCategory = (index) => {
+        setSelectedIndex(index);
+        setSelectedCategory(Categories[index.row]);
+        console.log(selectedCategory)
+    }
+
+
     return <View>
         <View style={styles.newExpenseControls}>
+            <View>
+                <Datepicker
+                    label='Date'
+                    placeholder={'Pick Date'}
+                    date={date}
+                    onSelect={nextDate => setDate(nextDate)}
+                    accessoryRight={CalendarIcon}
+                    style={styles.input}
+                />
+            </View>
             <View>
                 <Input
                     style={styles.input}
                     size='medium'
                     placeholder='Expense Title'
-                    // {...mediumInputState}
                     value={enteredTitle}
                     onChange={titleChangeHandler}
                     label='Title'
@@ -56,32 +77,36 @@ const ExpenseForm = (props) => {
                     style={styles.input}
                     size='medium'
                     placeholder='Expense Amount'
-                    // {...mediumInputState}
                     value={enteredAmount}
                     onChange={amountChangeHandler}
                     label='Amount'
                 />
 
             </View>
-            <View>
-                {/* <Layout style={styles.container} level='1'>
-                    <Datepicker
-                        label='Label'
-                        caption='Caption'
-                        placeholder='Pick Date'
-                        date={date}
-                        onSelect={nextDate => setDate(nextDate)}
-                        accessoryRight={CalendarIcon}
-                    />
-                </Layout> */}
-            </View>
+
         </View>
         <View>
-            <Button style={styles.button} size='small' onClick={submitHandler}>
-                Add Expense
+            <Select
+                label='Category'
+                value={selectedCategory}
+                placeholder='Select a category'
+                onSelect={onSelectCategory}>
+                <SelectItem value='Food' title='Food' />
+                <SelectItem value='Transportation' title='Transportation' />
+                <SelectItem value='Personal' title='Personal' />
+                <SelectItem value='Income' title='Income' />
+            </Select>
+        </View>
+        <View>
+            <Button
+                style={styles.button}
+                size='small'
+                // onFocus={ }
+                onPress={submitHandler}>
+                Add Transaction
             </Button>
         </View>
-    </View>
+    </View >
 };
 
 const styles = StyleSheet.create({
@@ -97,8 +122,8 @@ const styles = StyleSheet.create({
     },
     input: {
         marginVertical: 2,
-        borderColor: '#43978D',
-        borderRadius: 20,
+        borderColor: '#43978D !important',
+        borderRadius: '20 !important',
     },
     container: {
         minHeight: 360,

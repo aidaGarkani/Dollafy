@@ -12,6 +12,7 @@ import React, { useEffect } from 'react';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import ExpenseContextProvider from './.expo-shared/src/Context/ExpensesContext';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,20 +43,21 @@ export default function App() {
     var username = ""
 
     return (
-      <NavigationContainer>
-        <IconRegistry icons={EvaIconsPack} />
-        <ApplicationProvider {...eva} theme={eva.light}>
-          <StatusBar hidden />
-          <Stack.Navigator initialRouteName="OnBoard">
-            <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-            <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-            <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
-            <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-            <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
-          </Stack.Navigator>
-        </ApplicationProvider>
-      </NavigationContainer>
-
+      <ExpenseContextProvider>
+        <NavigationContainer>
+          <IconRegistry icons={EvaIconsPack} />
+          <ApplicationProvider {...eva} theme={eva.light}>
+            <StatusBar hidden />
+            <Stack.Navigator initialRouteName="OnBoard">
+              <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
+              <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+              <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+              <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+              <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+            </Stack.Navigator>
+          </ApplicationProvider>
+        </NavigationContainer>
+      </ExpenseContextProvider>
     );
   }
   else   // If not First Launch Login Starts //
@@ -64,20 +66,21 @@ export default function App() {
     var username = ""
 
     return (
-      <NavigationContainer>
-        <IconRegistry icons={EvaIconsPack} />
-
-        <ApplicationProvider {...eva} theme={eva.light}>
-          <StatusBar hidden />
-          <Stack.Navigator initialRouteName="Login">
-            <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
-            <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-            <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
-            <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-            <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
-          </Stack.Navigator>
-        </ApplicationProvider>
-      </NavigationContainer>
+      <ExpenseContextProvider>
+        <NavigationContainer>
+          <IconRegistry icons={EvaIconsPack} />
+          <ApplicationProvider {...eva} theme={eva.light}>
+            <StatusBar hidden />
+            <Stack.Navigator initialRouteName="Login">
+              <Stack.Screen name="OnBoard" component={OnBoard} options={{ headerShown: false }} />
+              <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+              <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
+              <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+              <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+            </Stack.Navigator>
+          </ApplicationProvider>
+        </NavigationContainer>
+      </ExpenseContextProvider>
     );
   }
 

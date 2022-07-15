@@ -22,7 +22,9 @@ const NewExpense = (props) => {
             <View style={styles.newExpense}
             >
                 <View>
-                    <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+                    <ExpenseForm
+                        setVisibility={props.setModalVisible}
+                        onSaveExpenseData={saveExpenseDataHandler} />
                 </View>
             </View>
         </Modal>

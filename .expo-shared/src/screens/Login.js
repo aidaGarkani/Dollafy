@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import React, { useState, navigation, useEffect } from 'react';
-import FormInput from '../components/FormInput';
-import FormButton from '../components/FormButton';
+import FormInput from '../components/UI/FormInput';
+import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
 
 function Login({ navigation }) {

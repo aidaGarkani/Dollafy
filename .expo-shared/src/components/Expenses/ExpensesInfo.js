@@ -19,10 +19,7 @@ const ExpensesInfo = (props) => {
                     <View style={styles.action}>
                         <Button
                             style={styles.button}
-                            onPress={() => setModalVisible(true)}>Add Income</Button>
-                        <Button
-                            style={styles.button}
-                            onPress={() => setModalVisible(true)}>Add Expense</Button>
+                            onPress={() => setModalVisible(true)}>Add Transaction</Button>
                     </View>
                 </View>
             </Card>
@@ -45,11 +42,11 @@ const styles = StyleSheet.create({
     },
     action: {
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+        flexDirection: 'row-reverse',
+
     },
     button: {
-        width: '45%',
+        width: '50%',
         borderRadius: 30,
 
     }

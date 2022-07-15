@@ -1,8 +1,7 @@
 import { Image, StyleSheet, Text, View, Button, TouchableOpacity, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
-// import Toast from 'react-native-simple-toast';
-import FormInput from '../components/FormInput';
-import FormButton from '../components/FormButton';
+import FormInput from '../components/UI/FormInput';
+import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
 
 export default function Profile({ navigation }) {
@@ -51,7 +50,6 @@ export default function Profile({ navigation }) {
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.welcometxt}>Profile</Text>
 
       <FormInput

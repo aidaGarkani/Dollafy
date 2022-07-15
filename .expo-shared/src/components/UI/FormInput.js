@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
-import {windowHeight, windowWidth} from '../utils/Dimentions';
+import { View, TextInput, StyleSheet } from 'react-native';
+import { windowHeight, windowWidth } from '../../utils/Dimentions';
 
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const FormInput = ({labelValue, placeholderText, iconType, ... rest}) => {
+const FormInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconStyle}>
@@ -16,7 +16,7 @@ const FormInput = ({labelValue, placeholderText, iconType, ... rest}) => {
         numberOfLines={1}
         placeholder={placeholderText}
         placeholderTextColor="#666"
-        {... rest}
+        {...rest}
       />
     </View>
   );

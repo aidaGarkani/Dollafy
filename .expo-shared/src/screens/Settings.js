@@ -1,10 +1,10 @@
 import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { useState, useEffect } from 'react';
-import Settingbtn from '../components/SettingBtn';
+import Settingbtn from '../components/UI/SettingBtn';
 import { firebase } from '../../../config'
+import NavigationTop from '../components/UI/NavigationTop';
 
 
-// function Home ({ route, navigation }) {
 function Settings({ navigation }) {
 
 
@@ -33,9 +33,6 @@ function Settings({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.welcometxt}>Welcome {name}</Text> */}
-      <Text style={styles.welcometxt}>Settings</Text>
-
       <View style={styles.userInfoSection}>
         <View style={{ flexDirection: 'row', marginTop: 15 }}>
           <View style={{ marginLeft: 20 }}>
@@ -72,15 +69,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  welcometxt: {
-    fontSize: 20,
-    position: 'absolute',
-    left: 5,
-    top: 30,
-    paddingLeft: 30,
-    fontFamily: 'Roboto',
-    fontWeight: 'bold',
-  },
   userInfoSection: {
     paddingHorizontal: 30,
     position: 'absolute',
@@ -91,4 +79,5 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
   },
+
 });

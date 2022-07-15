@@ -1,17 +1,29 @@
 import React, { useState } from 'react';
-import Card from '../components/UI/Card';
-import { View } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
+import NavigationTop from '../components/UI/NavigationTop';
 
 const Budget = (props) => {
   const [filteredYear, setFilteredYear] = useState('2019');
 
   return (
-    <View>
-      <Card className='expenses'>
-
-      </Card>
-    </View>
+    <ScrollView style={styles.container}>
+      <NavigationTop name={'Budget'} />
+      <View style={styles.wrapper}>
+      </View>
+    </ScrollView>
   );
 };
 
 export default Budget;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    maxWidth: '100 %',
+  },
+  wrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: '100px'
+  }
+});

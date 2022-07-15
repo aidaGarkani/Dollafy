@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 // import Toast from 'react-native-simple-toast';
-import FormInput from '../components/FormInput';
-import FormButton from '../components/FormButton';
+import FormInput from '../components/UI/FormInput';
+import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
 
 export default function SignUp({ navigation }) {
