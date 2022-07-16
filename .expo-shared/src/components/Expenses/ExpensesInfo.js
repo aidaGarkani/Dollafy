@@ -3,9 +3,12 @@ import Card from '../UI/Card';
 import { Button, Text } from '@ui-kitten/components';
 import { View, StyleSheet } from 'react-native';
 import NewExpense from '../NewExpense/NewExpense';
+import { totalBalance } from '../../utils/totalBalance';
+import { useExpenseContext } from '../../Context/ExpensesContext';
 
 const ExpensesInfo = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
+    const { expenses, isLoading } = useExpenseContext();
 
     return (
         <View style={{ width: '100%' }}>
@@ -15,7 +18,7 @@ const ExpensesInfo = (props) => {
             <Card>
                 <View style={styles.container}>
                     <Text>Account Balance</Text>
-                    <Text style={styles.amount}>$786</Text>
+                    {!isLoading && <Text style={styles.amount}>${totalBalance(expenses)}</Text>}
                     <View style={styles.action}>
                         <Button
                             style={styles.button}

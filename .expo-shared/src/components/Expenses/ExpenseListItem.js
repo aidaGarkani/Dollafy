@@ -1,22 +1,23 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
+import ExpenseItemIcon from './ExpenseItemIcon';
 
 function ExpenseListItem(props) {
     return (
         <View style={styles().container}>
             <View style={styles().icon}>
                 <Text>
-                    Icon
+                    <ExpenseItemIcon type={props.category} />
                 </Text>
             </View>
             <View>
-                <Text style={styles().title}>Grocery Store</Text>
-                <Text style={styles().subtitle}>02/04/2022</Text>
+                <Text style={styles().title}>{props.title}</Text>
+                <Text style={styles().subtitle}>{props.date}</Text>
             </View>
             <View style={{ flex: 1 }}></View>
             <View style={styles().amount}>
-                <Text style={styles("expense").textColor}>
-                    $100
+                <Text style={styles(props.category).textColor}>
+                    ${props.amount}
                 </Text>
             </View>
         </View>
@@ -34,6 +35,7 @@ const styles = (type) => StyleSheet.create({
         padding: 20,
         margin: 10,
         borderRadius: 7,
+        width: '95%'
     },
     title: {
         fontWeight: "bold"
@@ -51,6 +53,6 @@ const styles = (type) => StyleSheet.create({
         padding: 5,
     },
     textColor: {
-        color: type === "expense" ? "red" : "green"
+        color: type === "income" ? "green" : "red"
     }
 });

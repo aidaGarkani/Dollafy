@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import { Input, Button, Icon, Datepicker, Select, SelectItem } from '@ui-kitten/components';
+import { View, StyleSheet, Text } from "react-native";
+import { Input, Button, Icon, Datepicker, Select, SelectItem, Modal, Card } from '@ui-kitten/components';
 import { useExpenseContext } from "../../Context/ExpensesContext";
-
-const Categories = ['food', 'transportation', 'personal', 'income'];
+import { validator } from '../../utils/validator';
+const Categories = ['food', 'transportation', 'personal', 'grocery', 'income'];
 
 const ExpenseForm = (props) => {
     const [enteredTitle, setEnteredTitle] = useState('');
@@ -12,7 +12,9 @@ const ExpenseForm = (props) => {
     const [date, setDate] = React.useState(new Date());
     const [selectedCategory, setSelectedCategory] = useState('');
     const { addExpense } = useExpenseContext();
-    console.log(useExpenseContext())
+    const [modalVisible, setModalVisible] = useState(false);
+    const [error, setError] = useState('');
+
     const CalendarIcon = (props) => (
         <Icon {...props} name='calendar' />
     );
@@ -25,14 +27,21 @@ const ExpenseForm = (props) => {
     };
 
     const submitHandler = (event) => {
-        console.log('clicked')
 
         const expenseData = {
             title: enteredTitle,
             amount: +enteredAmount,
-            date: date,
-            Category: selectedCategory
+            date: date.toString(),
+            category: selectedCategory
         };
+        console.log(expenseData)
+        const { isValid, errorMessage } = validator(expenseData);
+        if (!isValid) {
+            setError(errorMessage)
+            setModalVisible(true)
+            return
+        }
+
         addExpense(expenseData);
 
         setEnteredTitle('');
@@ -51,6 +60,18 @@ const ExpenseForm = (props) => {
 
 
     return <View>
+        <Modal visible={modalVisible}>
+            <Card disabled={true}>
+                <Text style={styles.errorText}>{error}</Text>
+                <Button
+                    size='tiny'
+                    style={styles.errorButton}
+                    appearance='ghost'
+                    onPress={() => setModalVisible(false)}>
+                    Okayat!
+                </Button>
+            </Card>
+        </Modal>
         <View style={styles.newExpenseControls}>
             <View>
                 <Datepicker
@@ -94,6 +115,7 @@ const ExpenseForm = (props) => {
                 <SelectItem value='Food' title='Food' />
                 <SelectItem value='Transportation' title='Transportation' />
                 <SelectItem value='Personal' title='Personal' />
+                <SelectItem value='Grocery' title='Grocery' />
                 <SelectItem value='Income' title='Income' />
             </Select>
         </View>
@@ -101,7 +123,6 @@ const ExpenseForm = (props) => {
             <Button
                 style={styles.button}
                 size='small'
-                // onFocus={ }
                 onPress={submitHandler}>
                 Add Transaction
             </Button>
@@ -138,6 +159,12 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderColor: '#43978D'
     },
+    errorText: {
+        margin: 20
+    },
+    errorButton: {
+        color: '#43978D !important'
+    }
 });
 
 export default ExpenseForm;
