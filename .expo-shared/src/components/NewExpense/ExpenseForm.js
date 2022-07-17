@@ -143,8 +143,8 @@ const styles = StyleSheet.create({
     },
     input: {
         marginVertical: 2,
-        borderColor: '#43978D !important',
-        borderRadius: '20 !important',
+        borderColor: '#43978D',
+        borderRadius: '20',
     },
     container: {
         minHeight: 360,

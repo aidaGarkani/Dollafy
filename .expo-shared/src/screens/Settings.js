@@ -32,28 +32,32 @@ function Settings({ navigation }) {
 
 
   return (
-    <View style={styles.container}>
-      <View style={styles.userInfoSection}>
-        <View style={{ flexDirection: 'row', marginTop: 15 }}>
-          <View style={{ marginLeft: 20 }}>
-            <Text style={[styles.title, {
-              marginTop: 15,
-              marginBottom: 5,
-            }]}>{userInfo.name}</Text>
-            <Text style={styles.caption}>{userInfo.email}</Text>
+    <>
+      <NavigationTop name={'Setting'} />
+      <View style={styles.container}>
+        <View style={styles.userInfoSection}>
+          <View style={{ flexDirection: 'row', marginTop: 15 }}>
+            <View style={{ marginLeft: 20 }}>
+              <Text style={[styles.title, {
+                marginTop: 15,
+                marginBottom: 5,
+              }]}>{userInfo.name}</Text>
+              <Text style={styles.caption}>{userInfo.email}</Text>
+            </View>
           </View>
         </View>
+
+        <Settingbtn
+          onPress={() => navigation.navigate('Profile')}
+          buttonTitle="Edit Profile" />
+
+        <Settingbtn
+          onPress={() => navigation.navigate('Login')}
+          buttonTitle="Logout" />
+
       </View>
+    </>
 
-      <Settingbtn
-        onPress={() => navigation.navigate('Profile')}
-        buttonTitle="Edit Profile" />
-
-      <Settingbtn
-        onPress={() => navigation.navigate('Login')}
-        buttonTitle="Logout" />
-
-    </View>
 
 
   );

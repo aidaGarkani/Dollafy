@@ -5,6 +5,7 @@ import Home from '../../screens/Home';
 import Settings from '../../screens/Settings';
 import Profile from '../../screens/Profile';
 import Budget from '../../screens/Budget';
+import Analytics from '../../screens/Analytics';
 
 const Tab = createBottomTabNavigator();
 
@@ -45,6 +46,24 @@ export default function Tabs() {
             />
             <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
               Budget
+            </Text>
+          </View>
+        )
+      }} />
+      <Tab.Screen name="Analytics" component={Analytics} options={{
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <View style={{ alignItems: 'center', justifyContent: 'center', top: 3 }}>
+            <Image source={require('../../assets/images/monitoring_FILL0_wght400_GRAD0_opsz48.png')}
+              resizeMode='contain'
+              style={{
+                width: 25,
+                height: 25,
+                tintColor: focused ? '#43978D' : '#748c94',
+              }}
+            />
+            <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
+              Analytics
             </Text>
           </View>
         )
