@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
 import React, {useState, navigation} from 'react';
-import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { firebase } from '../config'
@@ -27,7 +26,7 @@ function Login({navigation}) {
                         return;
                     }
                     const userprofile = firestoreDocument.data()
-                    Toast.show('Logged In with : ' + email);
+                    //Toast.show('Logged In with : ' + email);
                     navigation.navigate('Tabs' , {screen: 'Home', params:{name:userprofile.name}})
                 })
                 .catch(error => {

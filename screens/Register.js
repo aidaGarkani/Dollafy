@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { firebase } from '../config'
@@ -48,7 +47,7 @@ export default function SignUp({navigation}) {
                 .doc(uid)
                 .set(data)
                 .then(() => {
-                  Toast.show('Registered with : ' + email);
+                  //Toast.show('Registered with : ' + email);
                     navigation.navigate('Tabs', {screen: 'Home', params:{name:name}})
                 })
                 .catch((error) => {

@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Text, View, Button ,TouchableOpacity, Alert} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Toast from 'react-native-simple-toast';
 import FormInput from '../components/FormInput';
 import FormButton from '../components/FormButton';
 import { firebase } from '../config'
