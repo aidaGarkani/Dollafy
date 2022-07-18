@@ -1,8 +1,9 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 import { useState } from 'react';
 import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
 import NavigationTop from '../components/UI/NavigationTop';
+import ImageFeedback from '../../../assets/images/undraw_reviews_lp8w.svg';
 
 function Feedback({ navigation, route }) {
 
@@ -16,6 +17,9 @@ function Feedback({ navigation, route }) {
   return (
     <>
       <NavigationTop name={'Feedback'} />
+      <View style={styles.imageContainer}>
+        <Image source={ImageFeedback} style={styles.image} />
+      </View>
       <View style={styles.container}>
         <FormInput
           labelValue={title}
@@ -62,5 +66,15 @@ const styles = StyleSheet.create({
     paddingLeft: 30,
     fontFamily: 'Roboto',
     fontWeight: 'bold',
+  },
+  imageContainer: {
+    width: '100%',
+    alignItems: 'center',
+    margin: 10
+  },
+  image: {
+    width: 300,
+    height: 210,
+    alignItems: 'center',
   }
 });

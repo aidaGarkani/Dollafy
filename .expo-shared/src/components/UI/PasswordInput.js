@@ -1,28 +1,25 @@
-import {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {TextInput} from 'react-native-paper';
-import {windowHeight, windowWidth} from '../../utils/Dimentions';
+import { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { TextInput } from 'react-native-paper';
+import { windowHeight, windowWidth } from '../../utils/Dimentions';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const PasswordInput = ({labelValue, placeholderText, iconType, ... rest}) => {
+const PasswordInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
 
-    const [passwordVisible, setPasswordVisible] = useState(true);
+  const [passwordVisible, setPasswordVisible] = useState(true);
 
   return (
     <View style={styles.inputContainer}>
       <View style={styles.iconStyle}>
-      <AntDesign name={iconType} size={25} color="#666" />
+        <AntDesign name={iconType} size={25} color="#666" />
       </View>
       <TextInput
         value={labelValue}
         style={styles.input}
         numberOfLines={1}
         placeholder={placeholderText}
-        placeholderTextColor="#666"
-        borderColor="transparent"
-        underlineColor="transparent"
         activeUnderlineColor="#94B4AF"
-        {... rest}
+        {...rest}
         secureTextEntry={passwordVisible}
         right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
       />
@@ -43,14 +40,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
     elevation: 10,
     shadowOffset: {
-      width:1,
-      height:1
+      width: 1,
+      height: 1
     },
-    shadowColor:'#333',
-    shadowOpacity:.1
+    shadowOpacity: .1
   },
   iconStyle: {
     padding: 10,
@@ -66,7 +61,6 @@ const styles = StyleSheet.create({
     height: windowHeight / 15,
     fontSize: 16,
     fontFamily: 'Roboto',
-    color: '#FFFFFF',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     borderRadius: 20
@@ -75,7 +69,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 5,
     marginBottom: 10,
-    width: windowWidth / 1.5,
+    width: windowWidth / 5,
     height: windowHeight / 10,
     fontSize: 16,
     borderRadius: 8,

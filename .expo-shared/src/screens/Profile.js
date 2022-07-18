@@ -4,6 +4,7 @@ import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
 import NavigationTop from '../components/UI/NavigationTop';
+import ImageProfile from '../../../assets/images/undraw_personal_information_re_vw8a.svg';
 
 export default function Profile({ navigation }) {
 
@@ -52,8 +53,8 @@ export default function Profile({ navigation }) {
 
     <>
       <NavigationTop name={'Profile'} />
-      <View>
-        {/* <Image source={ImageProfile} style={{ width: 200, height: 200 }} /> */}
+      <View style={styles.imageContainer}>
+        <Image source={ImageProfile} style={styles.image} />
       </View>
       <View style={styles.container}>
         <FormInput
@@ -112,23 +113,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
-    paddingTop: 90,
-  },
-  welcometxt: {
-    fontSize: 20,
-    position: 'absolute',
-    left: 5,
-    top: 30,
-    paddingLeft: 30,
-    paddingBottom: 40,
-    fontFamily: 'Roboto',
-    fontWeight: 'bold',
-  },
-  logo: {
-    height: 150,
-    width: 150,
-    resizeMode: 'cover',
+    padding: 10,
+    paddingTop: 20,
   },
   text: {
     fontFamily: 'Roboto',
@@ -136,16 +122,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     color: '#051d5f',
   },
-  navButton: {
-    marginTop: 15,
-  },
-  forgotButton: {
-    marginVertical: 35,
-  },
   navButtonText: {
     fontSize: 14,
     fontWeight: '500',
     color: '#2e64e5',
     fontFamily: 'Roboto',
   },
+  imageContainer: {
+    width: '100%',
+    alignItems: 'center',
+    margin: 10
+  },
+  image: {
+    width: 300,
+    height: 200,
+    alignItems: 'center',
+  }
 });

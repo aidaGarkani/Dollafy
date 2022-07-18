@@ -4,6 +4,7 @@ import PasswordInput from '../components/UI/PasswordInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
 import NavigationTop from '../components/UI/NavigationTop';
+import ImagePassword from '../../../assets/images/undraw_security_re_a2rk.svg';
 
 function ChangePass({ navigation, route }) {
 
@@ -38,8 +39,10 @@ function ChangePass({ navigation, route }) {
   return (
     <>
       <NavigationTop name={'Change Password'} />
+      <View style={styles.imageContainer}>
+        <Image source={ImagePassword} style={styles.image} />
+      </View>
       <View style={styles.container}>
-
         <View>
           <PasswordInput
             labelValue={password}
@@ -80,10 +83,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-
+    paddingTop: 120,
   },
   inputContainer: {
     marginLeft: 20,
     marginRight: 20,
-  }
+  },
+  image: {
+    width: 250,
+    height: 170,
+    alignItems: 'center',
+  },
+  imageContainer: {
+    width: '100%',
+    alignItems: 'center',
+    marginTop: '20%',
+
+  },
 });
