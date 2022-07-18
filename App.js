@@ -9,6 +9,8 @@ import Tabs from './.expo-shared/src/components/navigation/Tabs';
 import Profile from './.expo-shared/src/screens/Profile';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
+import Feedback from './.expo-shared/src/screens/Feedback';
+import ChangePass from './.expo-shared/src/screens/ChangePass';
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
@@ -39,9 +41,6 @@ export default function App() {
   // If First Launch Onboarding Starts//
   if (isFirstLaunch == true) {
 
-    var userid = ""
-    var username = ""
-
     return (
       <ExpenseContextProvider>
         <NavigationContainer>
@@ -54,6 +53,8 @@ export default function App() {
               <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
               <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
               <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+              <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: false }} />
+              <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
             </Stack.Navigator>
           </ApplicationProvider>
         </NavigationContainer>
@@ -77,6 +78,8 @@ export default function App() {
               <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
               <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
               <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+              <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: false }} />
+              <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
             </Stack.Navigator>
           </ApplicationProvider>
         </NavigationContainer>
