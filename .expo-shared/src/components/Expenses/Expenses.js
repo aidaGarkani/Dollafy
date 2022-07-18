@@ -11,7 +11,7 @@ const Expenses = (props) => {
         Expenses
       </Text>
       <Card style={styles.expenses}>
-        < ExpensesList />
+        < ExpensesList variant='expenses' />
       </Card>
     </View>
   );

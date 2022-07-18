@@ -9,7 +9,7 @@ import { useExpenseContext } from '../../Context/ExpensesContext';
 const ExpensesInfo = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const { expenses, isLoading } = useExpenseContext();
-
+    console.log(expenses)
     return (
         <View style={{ width: '100%' }}>
             <NewExpense
@@ -18,7 +18,7 @@ const ExpensesInfo = (props) => {
             <Card>
                 <View style={styles.container}>
                     <Text>Account Balance</Text>
-                    {!isLoading && <Text style={styles.amount}>${totalBalance(expenses)}</Text>}
+                    {!isLoading && expenses && <Text style={styles.amount}>${totalBalance(expenses)}</Text>}
                     <View style={styles.action}>
                         <Button
                             style={styles.button}

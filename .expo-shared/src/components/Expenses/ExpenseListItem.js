@@ -12,7 +12,7 @@ function ExpenseListItem(props) {
             </View>
             <View>
                 <Text style={styles().title}>{props.title}</Text>
-                <Text style={styles().subtitle}>{props.date}</Text>
+                {props.variant === 'expenses' && <Text style={styles().subtitle}>{props.date}</Text>}
             </View>
             <View style={{ flex: 1 }}></View>
             <View style={styles().amount}>
