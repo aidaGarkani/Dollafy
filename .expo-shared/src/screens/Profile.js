@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
+import NavigationTop from '../components/UI/NavigationTop';
 
 export default function Profile({ navigation }) {
 
@@ -48,57 +49,61 @@ export default function Profile({ navigation }) {
 
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.welcometxt}>Profile</Text>
 
-      <FormInput
-        labelValue={userInfo ? userInfo.name : ''}
-        onChangeText={(txt) => setUserInfo({ ...userInfo, name: txt })}
-        iconType="user"
-        autoCapitalize="words"
-        autoCorrect={false}
-      />
+    <>
+      <NavigationTop name={'Profile'} />
+      <View>
+        {/* <Image source={ImageProfile} style={{ width: 200, height: 200 }} /> */}
+      </View>
+      <View style={styles.container}>
+        <FormInput
+          labelValue={userInfo ? userInfo.name : ''}
+          onChangeText={(txt) => setUserInfo({ ...userInfo, name: txt })}
+          iconType="user"
+          autoCapitalize="words"
+          autoCorrect={false}
+        />
 
-      <FormInput
-        labelValue={userInfo ? userInfo.email : ''}
-        onChangeText={userEmail => setEmail(userEmail)}
-        placeholderText="Email"
-        editable={false}
-        iconType="user"
-        keyboardType="email-address"
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
+        <FormInput
+          labelValue={userInfo ? userInfo.email : ''}
+          onChangeText={userEmail => setEmail(userEmail)}
+          placeholderText="Email"
+          editable={false}
+          iconType="user"
+          keyboardType="email-address"
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
 
-      <FormInput
-        labelValue={userInfo ? userInfo.address : ''}
-        onChangeText={txt => setUserInfo({ ...userInfo, address: txt })}
-        placeholderText="Address"
-        iconType="user"
-      />
+        <FormInput
+          labelValue={userInfo ? userInfo.address : ''}
+          onChangeText={txt => setUserInfo({ ...userInfo, address: txt })}
+          placeholderText="Address"
+          iconType="user"
+        />
 
-      <FormInput
-        labelValue={userInfo ? userInfo.contact : ''}
-        onChangeText={txt => setUserInfo({ ...userInfo, contact: txt })}
-        keyboardType='number-pad'
-        placeholderText="Contact Number"
-        iconType="phone"
-      />
+        <FormInput
+          labelValue={userInfo ? userInfo.contact : ''}
+          onChangeText={txt => setUserInfo({ ...userInfo, contact: txt })}
+          keyboardType='number-pad'
+          placeholderText="Contact Number"
+          iconType="phone"
+        />
 
-      <FormButton
-        buttonTitle="Save"
-        onPress={() => UpdateInfo()}
+        <FormButton
+          buttonTitle="Save"
+          onPress={() => UpdateInfo()}
 
-      />
+        />
 
-      <FormButton
-        buttonTitle="Back"
-        onPress={() => navigation.navigate('Tabs')}
-      />
+        <FormButton
+          buttonTitle="Back"
+          onPress={() => navigation.navigate('Tabs')}
+        />
 
-    </View>
+      </View>
 
-
+    </>
   );
 
 }

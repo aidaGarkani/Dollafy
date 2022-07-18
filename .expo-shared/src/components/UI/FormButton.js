@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native'
-import { windowHeight, windowWidth } from '../../utils/Dimentions';
+import { windowHeight } from '../../utils/Dimentions';
 
 const FormButton = ({ buttonTitle, ...rest }) => {
     return (
@@ -14,9 +14,9 @@ export default FormButton;
 
 const styles = StyleSheet.create({
     buttonContainer: {
-        marginTop: 10,
-        width: '100%',
-        height: windowHeight / 15,
+        marginTop: 15,
+        width: '60%',
+        height: windowHeight / 20,
         backgroundColor: '#43978D',
         padding: 10,
         alignItems: 'center',
