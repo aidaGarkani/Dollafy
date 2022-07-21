@@ -18,7 +18,6 @@ const ExpensesList = (props) => {
         <Icon {...props} name='person' />
     );
 
-    console.log(expenses)
     return (
 
         <View style={styles.expensesList}>

@@ -22,7 +22,6 @@ export default function Profile({ navigation }) {
         address: userInfo.address,
       })
       .then(() => {
-        console.log('Updated User')
         Alert.alert('Updated Profile', 'Your Profile is Updated!')
         navigation.navigate('Tabs')
       })
@@ -36,7 +35,6 @@ export default function Profile({ navigation }) {
       .then((documentSnapshot) => {
         if (documentSnapshot.exists) {
           setUserInfo(documentSnapshot.data());
-          console.log(userInfo)
         }
         else {
           console.log('Error')
@@ -52,7 +50,6 @@ export default function Profile({ navigation }) {
   return (
 
     <>
-      <NavigationTop name={'Profile'} />
       <View style={styles.imageContainer}>
         <Image source={ImageProfile} style={styles.image} />
       </View>
@@ -97,10 +94,6 @@ export default function Profile({ navigation }) {
 
         />
 
-        <FormButton
-          buttonTitle="Back"
-          onPress={() => navigation.navigate('Tabs')}
-        />
 
       </View>
 

@@ -7,7 +7,6 @@ import {
   TouchableRipple,
   Divider
 } from 'react-native-paper';
-import NavigationTop from '../components/UI/NavigationTop';
 
 function Settings({ navigation }) {
 
@@ -40,7 +39,6 @@ function Settings({ navigation }) {
       .then((documentSnapshot) => {
         if (documentSnapshot.exists) {
           setUserInfo(documentSnapshot.data());
-          console.log(userInfo)
         }
         else {
           console.log('Error')
@@ -55,7 +53,6 @@ function Settings({ navigation }) {
 
   return (
     <>
-      <NavigationTop name={'Setting'} />
       <View>
         <View style={styles.container}>
           <View style={styles.userInfoSection}>

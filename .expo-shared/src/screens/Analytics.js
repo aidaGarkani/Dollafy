@@ -1,16 +1,28 @@
 import React from 'react'
 import { View, ScrollView, StyleSheet } from 'react-native';
-import NavigationTop from '../components/UI/NavigationTop';
+import ChartBar from '../components/Chart/ChartBar';
+import ChartList from '../components/Chart/ChartList';
+import { useExpenseContext } from "../Context/ExpensesContext";
+import ChartNotReady from "../components/Chart/ChartNotReady";
 
 const Analytics = () => {
+    const { expenses, isLoading } = useExpenseContext();
+
     return (
-        <View>
-            <ScrollView style={styles.containerScroll}>
-                <NavigationTop name={'Analytics'} />
-                <View style={styles.wrapper}>
-                </View>
-            </ScrollView>
-        </View>
+
+        <ScrollView style={styles.containerScroll}>
+            {!isLoading && expenses.length > 0 ?
+                <View>
+                    <View style={styles.wrapper}>
+                        <ChartList />
+                        <ChartBar />
+                    </View>
+                </View> :
+                <ChartNotReady />
+            }
+
+        </ScrollView >
+
     )
 }
 
@@ -32,5 +44,5 @@ const styles = StyleSheet.create({
         padding: '1rem',
         backgroundColor: 'rgb(31, 31, 31)',
         marginBottom: '300px'
-    },
+    }
 });

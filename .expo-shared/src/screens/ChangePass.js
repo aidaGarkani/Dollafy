@@ -3,7 +3,6 @@ import { useState } from 'react';
 import PasswordInput from '../components/UI/PasswordInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
-import NavigationTop from '../components/UI/NavigationTop';
 import ImagePassword from '../../../assets/images/undraw_security_re_a2rk.svg';
 
 function ChangePass({ navigation, route }) {
@@ -38,7 +37,6 @@ function ChangePass({ navigation, route }) {
 
   return (
     <>
-      <NavigationTop name={'Change Password'} />
       <View style={styles.imageContainer}>
         <Image source={ImagePassword} style={styles.image} />
       </View>
@@ -64,11 +62,6 @@ function ChangePass({ navigation, route }) {
         <FormButton
           buttonTitle="Edit"
           onPress={() => updatePassword()}
-        />
-
-        <FormButton
-          buttonTitle="Cancel"
-          onPress={() => navigation.navigate('Tabs')}
         />
       </View>
     </>

@@ -77,9 +77,9 @@ export default function App() {
               <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
               <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
               <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
-              <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
-              <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: false }} />
-              <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
+              <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
+              <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: true }} />
+              <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: true }} />
             </Stack.Navigator>
           </ApplicationProvider>
         </NavigationContainer>

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, ScrollView, View, Dimensions } from 'react-native';
-import NavigationTop from '../components/UI/NavigationTop';
 import Card from '../components/UI/Card';
 import { PieChart } from 'react-native-chart-kit';
 import { categoriesData } from '../utils/categoryChart';
 import { useExpenseContext } from '../Context/ExpensesContext';
 import ExpensesList from '../components/Expenses/ExpensesList';
+import NoExpenses from '../components/Expenses/NoExpenses';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -24,25 +24,29 @@ const Budget = (props) => {
   };
   return (
     <ScrollView style={styles.containerScroll}>
-      <NavigationTop name={'Budget'} />
       <View style={styles.wrapper}>
+        {expenses && expenses.length > 0 && <View style={styles.container}>
+          {!isLoading && < PieChart
+            data={categoriesData(expenses)}
+            width={screenWidth}
+            height={200}
+            chartConfig={chartConfig}
+            accessor={"total"}
+            backgroundColor={"transparent"}
+            center={[1, 5]}
+            absolute
+          />}
+        </View>}
         <Card>
-          <View style={styles.container}>
-            {!isLoading && < PieChart
-              data={categoriesData(expenses)}
-              width={screenWidth}
-              height={200}
-              chartConfig={chartConfig}
-              accessor={"total"}
-              backgroundColor={"transparent"}
-              center={[1, 5]}
-              absolute
-            />}
-          </View>
+
         </Card>
-        <Card style={styles.expenses}>
-          < ExpensesList variant='categories' />
-        </Card>
+        {expenses && expenses.length > 0 ?
+          <Card style={styles.expenses}>
+            < ExpensesList variant='categories' />
+          </Card> :
+          <NoExpenses style={styles.noExpense} />
+        }
+
       </View>
     </ScrollView>
   );
@@ -60,11 +64,14 @@ const styles = StyleSheet.create({
     maxWidth: '100 %',
   },
   wrapper: {
-    marginBottom: '100px'
+    marginBottom: '100px',
   },
   expenses: {
     padding: '1rem',
     backgroundColor: 'rgb(31, 31, 31)',
     marginBottom: '300px'
   },
+  noExpense: {
+    marginTop: 100
+  }
 });

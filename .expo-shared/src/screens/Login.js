@@ -10,7 +10,6 @@ function Login({ navigation }) {
   const [password, setPassword] = useState();
 
   useEffect(() => {
-    console.log(firebase.auth().currentUser)
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         navigation.navigate('Tabs', { screen: 'Home', params: { name: firebase.auth().currentUser.name } })
@@ -49,7 +48,7 @@ function Login({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/images/logo.png')}
+        source={require('../../../assets/images/logo.png')}
         style={styles.logo} />
 
       <FormInput

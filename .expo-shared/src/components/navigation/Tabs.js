@@ -15,10 +15,10 @@ export default function Tabs() {
   return (
     <Tab.Navigator {...{ screenOptions, tabBarOptions: { showLabel: false } }}>
       <Tab.Screen name="Home" component={Home} options={{
-        headerShown: false,
+        headerShown: true,
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center', justifyContent: 'center', top: 3 }}>
-            <Image source={require('../../assets/images/home.png')}
+            <Image source={require('../../../../assets/images/home.png')}
               resizeMode='contain'
               style={{
                 width: 25,
@@ -33,10 +33,10 @@ export default function Tabs() {
         )
       }} />
       <Tab.Screen name="Budget" component={Budget} options={{
-        headerShown: false,
+        headerShown: true,
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center', justifyContent: 'center', top: 3 }}>
-            <Image source={require('../../assets/images/budget.png')}
+            <Image source={require('../../../../assets/images/budget.png')}
               resizeMode='contain'
               style={{
                 width: 25,
@@ -51,10 +51,10 @@ export default function Tabs() {
         )
       }} />
       <Tab.Screen name="Analytics" component={Analytics} options={{
-        headerShown: false,
+        headerShown: true,
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center', justifyContent: 'center', top: 3 }}>
-            <Image source={require('../../assets/images/monitoring_FILL0_wght400_GRAD0_opsz48.png')}
+            <Image source={require('../../../../assets/images/monitoring_FILL0_wght400_GRAD0_opsz48.png')}
               resizeMode='contain'
               style={{
                 width: 25,
@@ -69,10 +69,10 @@ export default function Tabs() {
         )
       }} />
       <Tab.Screen name="Settings" component={Settings} options={{
-        headerShown: false,
+        headerShown: true,
         tabBarIcon: ({ focused }) => (
           <View style={{ alignItems: 'center', justifyContent: 'center', top: 3 }}>
-            <Image source={require('../../assets/images/setting.png')}
+            <Image source={require('../../../../assets/images/setting.png')}
               resizeMode='contain'
               style={{
                 width: 25,

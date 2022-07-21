@@ -34,7 +34,6 @@ const ExpenseForm = (props) => {
             date: date.toString(),
             category: selectedCategory
         };
-        console.log(expenseData)
         const { isValid, errorMessage } = validator(expenseData);
         if (!isValid) {
             setError(errorMessage)
@@ -55,7 +54,6 @@ const ExpenseForm = (props) => {
     const onSelectCategory = (index) => {
         setSelectedIndex(index);
         setSelectedCategory(Categories[index.row]);
-        console.log(selectedCategory)
     }
 
 
@@ -81,6 +79,7 @@ const ExpenseForm = (props) => {
                     onSelect={nextDate => setDate(nextDate)}
                     accessoryRight={CalendarIcon}
                     style={styles.input}
+                    min={new Date('2020', '01', '01')}
                 />
             </View>
             <View>

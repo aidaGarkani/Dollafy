@@ -31,7 +31,6 @@ const ExpenseContextProvider = ({ children }) => {
                 if (user) {
                     const response = await firebase.firestore().collection(`users/${user.uid}/transactions`).get();
                     setExpenses(response.docs.map(doc => doc.data()));
-                    console.log(response.docs.map(doc => doc.data()))
                 }
             })
         } catch (error) {

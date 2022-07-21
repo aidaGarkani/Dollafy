@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import ExpenseItemIcon from './ExpenseItemIcon';
+// import DeleteIcon from '../../../../assets/icons8-remove-48.png';
 
 function ExpenseListItem(props) {
     return (
@@ -54,5 +55,5 @@ const styles = (type) => StyleSheet.create({
     },
     textColor: {
         color: type === "income" ? "green" : "red"
-    }
+    },
 });

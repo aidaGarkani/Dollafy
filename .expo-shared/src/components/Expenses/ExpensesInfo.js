@@ -9,7 +9,6 @@ import { useExpenseContext } from '../../Context/ExpensesContext';
 const ExpensesInfo = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const { expenses, isLoading } = useExpenseContext();
-    console.log(expenses)
     return (
         <View style={{ width: '100%' }}>
             <NewExpense
