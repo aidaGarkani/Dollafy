@@ -23,6 +23,17 @@ const ExpenseContextProvider = ({ children }) => {
         }
     };
 
+    const removeExpense = async (expense) => {
+        setIsLoading(true);
+        try {
+            firebase.firestore().collection('users')
+                .doc(firebase.auth().currentUser.uid).collection('transactions').doc(expense.id).delete();
+        } catch (error) {
+            throw new Error(error);
+        }
+        setIsLoading(false);
+        getExpenses();
+    }
 
     const getExpenses = async () => {
         setIsLoading(true);
@@ -30,7 +41,7 @@ const ExpenseContextProvider = ({ children }) => {
             firebase.auth().onAuthStateChanged(async (user) => {
                 if (user) {
                     const response = await firebase.firestore().collection(`users/${user.uid}/transactions`).get();
-                    setExpenses(response.docs.map(doc => doc.data()));
+                    setExpenses(response.docs.map(doc => ({ ...doc.data(), id: doc.id })));
                 }
             })
         } catch (error) {
@@ -44,7 +55,7 @@ const ExpenseContextProvider = ({ children }) => {
         getExpenses()
     }, [])
 
-    return <ExpenseContext.Provider value={{ addExpense, expenses, isLoading }}>{children}</ExpenseContext.Provider>
+    return <ExpenseContext.Provider value={{ addExpense, expenses, isLoading, removeExpense }}>{children}</ExpenseContext.Provider>
 };
 
 export const useExpenseContext = () => {

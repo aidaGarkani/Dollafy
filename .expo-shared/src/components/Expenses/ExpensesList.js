@@ -29,7 +29,8 @@ const ExpensesList = (props) => {
                         category={props.category}
                         title={props.title}
                         amount={props.amount}
-                        date={dateChanger(props.date)} />
+                        date={dateChanger(props.date)}
+                        id={props.id} />
                 }) : categoriesData(expenses).map((props, index) => {
                     return <ExpenseListItem
                         variant='categories'

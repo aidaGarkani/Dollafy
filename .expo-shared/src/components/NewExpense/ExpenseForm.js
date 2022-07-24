@@ -10,7 +10,7 @@ const ExpenseForm = (props) => {
     const [enteredAmount, setEnteredAmount] = useState('');
     const [selectedIndex, setSelectedIndex] = useState();
     const [date, setDate] = React.useState(new Date());
-    const [selectedCategory, setSelectedCategory] = useState('');
+    const [selectedCategory, setSelectedCategory] = useState(props.category);
     const { addExpense } = useExpenseContext();
     const [modalVisible, setModalVisible] = useState(false);
     const [error, setError] = useState('');
@@ -34,6 +34,8 @@ const ExpenseForm = (props) => {
             date: date.toString(),
             category: selectedCategory
         };
+        console.log(expenseData.category)
+
         const { isValid, errorMessage } = validator(expenseData);
         if (!isValid) {
             setError(errorMessage)
@@ -52,8 +54,13 @@ const ExpenseForm = (props) => {
     };
 
     const onSelectCategory = (index) => {
-        setSelectedIndex(index);
-        setSelectedCategory(Categories[index.row]);
+        if (!index) {
+            setSelectedCategory(props.category)
+
+        } else {
+            setSelectedIndex(index);
+            setSelectedCategory(Categories[index.row]);
+        }
     }
 
 
@@ -106,17 +113,21 @@ const ExpenseForm = (props) => {
 
         </View>
         <View>
-            <Select
-                label='Category'
-                value={selectedCategory}
-                placeholder='Select a category'
-                onSelect={onSelectCategory}>
-                <SelectItem value='Food' title='Food' />
-                <SelectItem value='Transportation' title='Transportation' />
-                <SelectItem value='Personal' title='Personal' />
-                <SelectItem value='Grocery' title='Grocery' />
-                <SelectItem value='Income' title='Income' />
-            </Select>
+            {
+                !props.category &&
+                <Select
+                    label='Category'
+                    value={selectedCategory}
+                    placeholder='Select a category'
+                    onSelect={onSelectCategory}>
+                    <SelectItem value='Food' title='Food' />
+                    <SelectItem value='Transportation' title='Transportation' />
+                    <SelectItem value='Personal' title='Personal' />
+                    <SelectItem value='Grocery' title='Grocery' />
+                    <SelectItem value='Income' title='Income' />
+                </Select>
+            }
+
         </View>
         <View>
             <Button

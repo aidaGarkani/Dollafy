@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Image, TouchableHighlight } from 'react-native';
 import ExpenseItemIcon from './ExpenseItemIcon';
-// import DeleteIcon from '../../../../assets/icons8-remove-48.png';
+import Delete from '../../../../assets/icons8-delete-24.png';
+import { useExpenseContext } from '../../Context/ExpensesContext';
+
 
 function ExpenseListItem(props) {
+    const { removeExpense, isLoading } = useExpenseContext();
+
     return (
         <View style={styles().container}>
             <View style={styles().icon}>
@@ -20,8 +24,12 @@ function ExpenseListItem(props) {
                 <Text style={styles(props.category).textColor}>
                     ${props.amount}
                 </Text>
+                <TouchableHighlight onPress={() => removeExpense(props)}>
+                    <Image source={Delete} style={{ height: 20, width: 20, marginTop: 2 }} />
+                </TouchableHighlight>
+
             </View>
-        </View>
+        </View >
     )
 }
 
@@ -52,8 +60,9 @@ const styles = (type) => StyleSheet.create({
     },
     amount: {
         padding: 5,
+        alignItems: 'end'
     },
     textColor: {
-        color: type === "income" ? "green" : "red"
+        color: type === "income" ? "green" : "red",
     },
 });

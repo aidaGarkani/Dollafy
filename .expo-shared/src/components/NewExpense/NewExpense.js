@@ -23,6 +23,7 @@ const NewExpense = (props) => {
             >
                 <View>
                     <ExpenseForm
+                        category={props.categoryName}
                         setVisibility={props.setModalVisible}
                         onSaveExpenseData={saveExpenseDataHandler} />
                 </View>

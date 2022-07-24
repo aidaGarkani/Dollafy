@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Card from '../UI/Card';
 import ExpensesList from './ExpensesList';
 import { View, StyleSheet, Text } from 'react-native';

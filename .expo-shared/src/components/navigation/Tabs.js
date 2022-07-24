@@ -1,9 +1,8 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../../screens/Home';
 import Settings from '../../screens/Settings';
-import Profile from '../../screens/Profile';
 import Budget from '../../screens/Budget';
 import Analytics from '../../screens/Analytics';
 
