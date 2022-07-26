@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View, Button, } from 'react-native';
+import { Image, StyleSheet, View, Button, Alert} from 'react-native';
 import { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { firebase } from '../../../config';
@@ -14,8 +14,9 @@ function Settings({ navigation }) {
   const [userInfo, setUserInfo] = useState([]);
 
   const logout = async () => {
+    alert('Are you sure ?')
     navigation.navigate('Login')
-    firebase.auth().signOut
+    firebase.auth().logout
   }
 
   const navToProf = async () => {
