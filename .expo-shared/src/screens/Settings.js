@@ -16,7 +16,12 @@ function Settings({ navigation }) {
   const logout = async () => {
     alert('Are you sure ?')
     navigation.navigate('Login')
-    firebase.auth().logout
+    
+    firebase.auth().signOut().then(function() {
+      console.log('Signed Out');
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });
   }
 
   const navToProf = async () => {

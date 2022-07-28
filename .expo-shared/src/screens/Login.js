@@ -1,8 +1,9 @@
 import { Image, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
-import React, { useState, navigation, useEffect } from 'react';
+import React, { useState, navigation, useEffect, useContext } from 'react';
 import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
+import { async } from '@firebase/util';
 
 function Login({ navigation }) {
 
@@ -12,10 +13,14 @@ function Login({ navigation }) {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        navigation.navigate('Tabs', { screen: 'Home', params: { name: firebase.auth().currentUser.name } })
+        navigation.navigate('Tabs', { screen: 'Home'})
       }
     });
   }, []);
+
+  const navToForget = async() =>{
+    navigation.navigate('ForgetPass')
+  }
 
   const onLoginPress = async () => {
     await firebase
@@ -74,7 +79,7 @@ function Login({ navigation }) {
         // onPress={() => navigation.navigate('Tabs')}/>
         onPress={() => onLoginPress()} />
 
-      <TouchableOpacity style={styles.forgotButton} onPress={() => alert('Forgot')}>
+      <TouchableOpacity style={styles.forgotButton} onPress={navToForget}>
         <Text style={styles.navButtonText}>Forgot Password</Text>
       </TouchableOpacity>
 

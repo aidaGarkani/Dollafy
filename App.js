@@ -7,6 +7,7 @@ import Login from './.expo-shared/src/screens/Login';
 import Register from './.expo-shared/src/screens/Register';
 import Tabs from './.expo-shared/src/components/navigation/Tabs';
 import Profile from './.expo-shared/src/screens/Profile';
+import ForgetPass from './.expo-shared/src/screens/ForgetPass';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React, { useEffect } from 'react';
 import Feedback from './.expo-shared/src/screens/Feedback';
@@ -53,6 +54,7 @@ export default function App() {
               <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
               <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
               <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+              <Stack.Screen name="ForgetPass" component={ForgetPass} options={{ headerShown: false }} />
               <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: false }} />
               <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: false }} />
             </Stack.Navigator>
@@ -63,9 +65,6 @@ export default function App() {
   }
   else   // If not First Launch Login Starts //
   {
-    var userid = ""
-    var username = ""
-
     return (
       <ExpenseContextProvider>
         <NavigationContainer>
@@ -77,6 +76,7 @@ export default function App() {
               <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
               <Stack.Screen name="Register" component={Register} options={{ headerShown: false }} />
               <Stack.Screen name="Tabs" component={Tabs} options={{ headerShown: false }} />
+              <Stack.Screen name="ForgetPass" component={ForgetPass} options={{ headerShown: false }} />
               <Stack.Screen name="Profile" component={Profile} options={{ headerShown: true }} />
               <Stack.Screen name="ChangePass" component={ChangePass} options={{ headerShown: true }} />
               <Stack.Screen name="Feedback" component={Feedback} options={{ headerShown: true }} />
