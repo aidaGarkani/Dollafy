@@ -1,4 +1,4 @@
-import { Image, StyleSheet, View, Button, Alert} from 'react-native';
+import { Image, StyleSheet, View, Button, Alert } from 'react-native';
 import { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { firebase } from '../../../config';
@@ -16,10 +16,10 @@ function Settings({ navigation }) {
   const logout = async () => {
     alert('Are you sure ?')
     navigation.navigate('Login')
-    
-    firebase.auth().signOut().then(function() {
+
+    firebase.auth().signOut().then(function () {
       console.log('Signed Out');
-    }, function(error) {
+    }, function (error) {
       console.error('Sign Out Error', error);
     });
   }

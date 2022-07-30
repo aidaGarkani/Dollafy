@@ -28,7 +28,7 @@
       "package": "com.dollafy.dollafy"
     },
     "web": {
-      "favicon": "./assets/favicon.png",
+      "favicon": "./assets/images/logo.png",
       "build": {
         "babel": {
           "include": [

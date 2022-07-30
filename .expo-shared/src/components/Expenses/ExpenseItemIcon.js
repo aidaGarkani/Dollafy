@@ -12,8 +12,7 @@ const ExpenseItemIcon = ({ type }) => {
         : type === 'grocery' ? groceryIcon
             : type === 'transportation' ? transportationIcon
                 : type === 'personal' ? personalIcon
-                    : type === 'recurring' ? recurringBill
-                        : type === 'income' ? incomeIcon : ''
+                    : type === 'income' ? incomeIcon : ''
 
     return <Image source={path} style={{ width: 40, height: 40 }} />
 }

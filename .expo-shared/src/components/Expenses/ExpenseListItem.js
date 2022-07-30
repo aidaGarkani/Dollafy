@@ -24,10 +24,11 @@ function ExpenseListItem(props) {
                 <Text style={styles(props.category).textColor}>
                     ${props.amount}
                 </Text>
-                <TouchableHighlight onPress={() => removeExpense(props)}>
-                    <Image source={Delete} style={{ height: 20, width: 20, marginTop: 2 }} />
-                </TouchableHighlight>
-
+                {props.variant === 'expenses' &&
+                    <TouchableHighlight onPress={() => removeExpense(props)}>
+                        <Image source={Delete} style={{ height: 20, width: 20, marginTop: 2 }} />
+                    </TouchableHighlight>
+                }
             </View>
         </View >
     )

@@ -16,14 +16,12 @@ import * as eva from '@eva-design/eva';
 import { ApplicationProvider, IconRegistry, Layout, Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import ExpenseContextProvider from './.expo-shared/src/Context/ExpensesContext';
+import { AppRegistry } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
-
+AppRegistry.registerComponent('main', () => App);
 export default function App() {
-
-
-  // First Lauch Code // 
 
   const [isFirstLaunch, SetIsFirstLaunch] = React.useState(null);
 

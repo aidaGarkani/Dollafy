@@ -8,7 +8,6 @@ import groceryIcon from '../../../assets/images/icons8-grocery-bag-48.png';
 import transportationIcon from '../../../assets/images/icons8-public-transportation-48.png';
 import personalIcon from '../../../assets/images/icons8-personal-60.png';
 import incomeIcon from '../../../assets/images/icons8-income-64.png';
-import recurringBill from '../../../assets/images/bill.png'
 
 function Home({ navigation, route }) {
 
@@ -31,13 +30,9 @@ function Home({ navigation, route }) {
               <CategoryContainer imageUri={transportationIcon} name={'transportation'} />
               <CategoryContainer imageUri={personalIcon} name={'personal'} />
               <CategoryContainer imageUri={incomeIcon} name={'income'} />
-              <CategoryContainer imageUri={recurringBill} name={'recurring'} />
             </ScrollView>
           </View>
         </View>
-
-
-
         <Expenses />
       </View >
     </ScrollView >

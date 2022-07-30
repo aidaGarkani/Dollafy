@@ -34,7 +34,6 @@ const ExpenseForm = (props) => {
             date: date.toString(),
             category: selectedCategory
         };
-        console.log(expenseData.category)
 
         const { isValid, errorMessage } = validator(expenseData);
         if (!isValid) {
