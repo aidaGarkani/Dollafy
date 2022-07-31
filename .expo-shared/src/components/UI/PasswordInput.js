@@ -18,10 +18,9 @@ const PasswordInput = ({ labelValue, placeholderText, iconType, ...rest }) => {
         style={styles.input}
         numberOfLines={1}
         placeholder={placeholderText}
-        activeUnderlineColor="#94B4AF"
         {...rest}
         secureTextEntry={passwordVisible}
-        right={<TextInput.Icon name={passwordVisible ? "eye" : "eye-off"} onPress={() => setPasswordVisible(!passwordVisible)} />}
+        right={<TextInput.Icon name={passwordVisible ? "eye-off" : "eye"} onPress={() => setPasswordVisible(!passwordVisible)} />}
       />
     </View>
   );

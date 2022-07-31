@@ -11,9 +11,7 @@ function ExpenseListItem(props) {
     return (
         <View style={styles().container}>
             <View style={styles().icon}>
-                <Text>
-                    <ExpenseItemIcon type={props.category} />
-                </Text>
+                <ExpenseItemIcon type={props.category} />
             </View>
             <View>
                 <Text style={styles().title}>{props.title}</Text>
@@ -55,13 +53,13 @@ const styles = (type) => StyleSheet.create({
         paddingRight: 15,
     },
     subtitle: {
-        paddingTop: "2px",
+        paddingTop: 2,
         color: "grey",
-        fontSize: "12px"
+        fontSize: 12
     },
     amount: {
         padding: 5,
-        alignItems: 'end'
+        alignItems: 'center'
     },
     textColor: {
         color: type === "income" ? "green" : "red",

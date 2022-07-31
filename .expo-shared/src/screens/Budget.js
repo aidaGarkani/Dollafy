@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, ScrollView, View, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, View, Dimensions, Text } from 'react-native';
 import Card from '../components/UI/Card';
 import { PieChart } from 'react-native-chart-kit';
 import { categoriesData } from '../utils/categoryChart';
@@ -37,9 +37,6 @@ const Budget = (props) => {
             absolute
           />}
         </View>}
-        <Card>
-
-        </Card>
         {expenses && expenses.length > 0 ?
           <Card style={styles.expenses}>
             < ExpensesList variant='categories' />
@@ -56,7 +53,7 @@ export default Budget;
 
 const styles = StyleSheet.create({
   container: {
-    display: 'block !important',
+    display: 'flex',
     width: '100%',
   },
   containerScroll: {
@@ -64,12 +61,12 @@ const styles = StyleSheet.create({
     maxWidth: '100 %',
   },
   wrapper: {
-    marginBottom: '100px',
+    marginBottom: 300,
   },
   expenses: {
     padding: '1rem',
     backgroundColor: 'rgb(31, 31, 31)',
-    marginBottom: '300px'
+    marginBottom: 300
   },
   noExpense: {
     marginTop: 100

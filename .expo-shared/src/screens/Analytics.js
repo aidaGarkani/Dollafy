@@ -30,7 +30,7 @@ export default Analytics
 
 const styles = StyleSheet.create({
     container: {
-        display: 'block !important',
+        display: 'block',
         width: '100%',
     },
     containerScroll: {
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         maxWidth: '100 %',
     },
     wrapper: {
-        marginBottom: '100px'
+        marginBottom: 100
     },
     expenses: {
         padding: '1rem',
         backgroundColor: 'rgb(31, 31, 31)',
-        marginBottom: '300px'
+        marginBottom: 300
     }
 });

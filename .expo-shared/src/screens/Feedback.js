@@ -2,7 +2,7 @@ import { StyleSheet, View, Image } from 'react-native';
 import { useState } from 'react';
 import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
-import ImageFeedback from '../../../assets/images/undraw_reviews_lp8w.svg';
+import ImageFeedback from '../../../assets/images/undraw_reviews_lp8w.png';
 
 function Feedback({ navigation, route }) {
 
@@ -23,7 +23,6 @@ function Feedback({ navigation, route }) {
           labelValue={title}
           onChangeText={feedTitle => setTitle(feedTitle)}
           placeholderText="Feedback Title"
-          iconType="user"
           autoCapitalize="none"
           autoCorrect={false}
         />
@@ -32,7 +31,6 @@ function Feedback({ navigation, route }) {
           labelValue={feedback}
           onChangeText={feedbackItem => setFeedback(feedbackItem)}
           placeholderText="Feedback"
-          iconType="lock"
         />
 
         <FormButton
@@ -65,11 +63,10 @@ const styles = StyleSheet.create({
   imageContainer: {
     width: '100%',
     alignItems: 'center',
-    margin: 10
+    marginTop: 10
   },
   image: {
     width: 300,
     height: 210,
-    alignItems: 'center',
   }
 });

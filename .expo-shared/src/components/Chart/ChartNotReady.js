@@ -1,5 +1,5 @@
 import React from 'react'
-import ChartImage from '../../../../assets/images/undraw_growing_re_olpi.svg';
+import ChartImage from '../../../../assets/images/undraw_Growing_re_olpi.png';
 import { View, StyleSheet, Text, Image } from 'react-native';
 
 
@@ -17,13 +17,13 @@ export default ChartNotReady
 
 const styles = StyleSheet.create({
     container: {
-        maxHeight: 200,
+        maxHeight: 300,
         marginTop: 50,
-        marginLeft: 20,
         alignItems: 'center',
+        margin: 20
     },
     image: {
-        width: 200,
+        width: 330,
         height: 200,
         alignItems: 'center',
     },

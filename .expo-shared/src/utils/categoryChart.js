@@ -39,6 +39,5 @@ export const categoriesData = (expenses) => {
         categoryChart('transportation', expenses),
         categoryChart('grocery', expenses),
         categoryChart('personal', expenses),
-        categoryChart('recurring', expenses),
     ];
 };

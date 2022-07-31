@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import NoData from '../../../../assets/images/undraw_taken_re_yn20.svg';
+import NoData from '../../../../assets/images/undraw_Taken_re_yn20.png';
 
 const NoExpenses = () => {
     return (
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
     container: {
         maxHeight: 200,
         marginTop: 50,
-        marginLeft: 20,
         alignItems: 'center',
     },
     image: {

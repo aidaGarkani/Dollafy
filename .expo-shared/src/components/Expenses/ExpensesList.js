@@ -10,13 +10,13 @@ const ExpensesList = (props) => {
 
     const { isLoading, expenses } = useExpenseContext();
 
-    const renderItemAccessory = (props) => (
-        <Button size='tiny'>Delete</Button>
-    );
+    // const renderItemAccessory = (props) => (
+    //     <Button size='tiny'>Delete</Button>
+    // );
 
-    const renderItemIcon = (props) => (
-        <Icon {...props} name='person' />
-    );
+    // const renderItemIcon = (props) => (
+    //     <Icon {...props} name='person' />
+    // );
 
     return (
 

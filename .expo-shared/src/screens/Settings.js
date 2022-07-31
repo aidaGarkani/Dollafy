@@ -18,9 +18,8 @@ function Settings({ navigation }) {
     navigation.navigate('Login')
 
     firebase.auth().signOut().then(function () {
-      console.log('Signed Out');
     }, function (error) {
-      console.error('Sign Out Error', error);
+      throw new Error(error);
     });
   }
 
@@ -47,7 +46,7 @@ function Settings({ navigation }) {
           setUserInfo(documentSnapshot.data());
         }
         else {
-          console.log('Error')
+          throw new Error(error);
         }
       })
   }
@@ -119,7 +118,7 @@ export default Settings;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    display: 'block',
+    display: 'flex',
     marginBottom: 50
   },
   welcometxt: {

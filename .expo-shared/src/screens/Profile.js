@@ -1,10 +1,9 @@
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity, Alert } from 'react-native';
+import { Image, StyleSheet, View, Alert } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import FormInput from '../components/UI/FormInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
-import NavigationTop from '../components/UI/NavigationTop';
-import ImageProfile from '../../../assets/images/undraw_personal_information_re_vw8a.svg';
+import ImageProfile from '../../../assets/images/undraw_personal_information_re_vw8a.png';
 
 export default function Profile({ navigation }) {
 
@@ -37,7 +36,7 @@ export default function Profile({ navigation }) {
           setUserInfo(documentSnapshot.data());
         }
         else {
-          console.log('Error')
+          throw new Error(error);
         }
       })
   }
@@ -77,7 +76,7 @@ export default function Profile({ navigation }) {
           labelValue={userInfo ? userInfo.address : ''}
           onChangeText={txt => setUserInfo({ ...userInfo, address: txt })}
           placeholderText="Address"
-          iconType="user"
+          iconType="home"
         />
 
         <FormInput

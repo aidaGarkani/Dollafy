@@ -13,7 +13,7 @@ const screenWidth = Dimensions.get('window').width;
 const chartConfig = {
     backgroundGradientFrom: "#1E2923",
     backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "FFFFF",
+    backgroundGradientTo: "white",
     backgroundGradientToOpacity: 0,
     color: (opacity = 1) => "#a5a5a5",
     strokeWidth: 2, // optional, default 3

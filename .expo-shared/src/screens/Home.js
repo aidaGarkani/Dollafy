@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   wrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: '100px'
+    marginBottom: 300
   },
   containerCategory: {
     flex: 1,
@@ -59,14 +59,12 @@ const styles = StyleSheet.create({
   containerCategoryText: {
     fontSize: 16,
     fontWeight: '700',
-    paddingHorizontal: 20,
-    marginLeft: 30
-
+    paddingHorizontal: 10,
   },
   categoryView: {
     height: 80,
     marginTop: 20,
-    marginLeft: 40
+    marginLeft: 10
   }
 });
 

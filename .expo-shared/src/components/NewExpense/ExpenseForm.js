@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     input: {
         marginVertical: 2,
         borderColor: '#43978D',
-        borderRadius: '20',
+        borderRadius: 20,
     },
     container: {
         minHeight: 360,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         margin: 20
     },
     errorButton: {
-        color: '#43978D !important'
+        color: '#43978D'
     }
 });
 

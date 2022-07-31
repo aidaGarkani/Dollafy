@@ -13,22 +13,25 @@ const NewExpense = (props) => {
         props.onAddExpense(expensesData);
     }
     return (
-        <Modal
-            style={styles.centeredView}
-            visible={props.modalVisible}
-            backdropStyle={styles.backdrop}
-            onBackdropPress={() => props.setModalVisible(false)}
-        >
-            <View style={styles.newExpense}
+        <>
+            <Modal
+                style={styles.centeredView}
+                visible={props.modalVisible}
+                backdropStyle={styles.backdrop}
+                onBackdropPress={() => props.setModalVisible(false)}
             >
-                <View>
-                    <ExpenseForm
-                        category={props.categoryName}
-                        setVisibility={props.setModalVisible}
-                        onSaveExpenseData={saveExpenseDataHandler} />
+                <View style={styles.newExpense}
+                >
+                    <View>
+                        <ExpenseForm
+                            category={props.categoryName}
+                            setVisibility={props.setModalVisible}
+                            onSaveExpenseData={saveExpenseDataHandler} />
+                    </View>
                 </View>
-            </View>
-        </Modal>
+            </Modal>
+        </>
+
     );
 };
 
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
         margin: ' 2rem auto',
         width: ' 95%',
         maxWidth: '95%',
-        borderRadius: '12px',
+        borderRadius: 12,
         textAlign: 'center',
         boxShadow: ' 0 1px 8px rgba(0, 0, 0, 0.25)',
         backgroundColor: '#e3e9e5',

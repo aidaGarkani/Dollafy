@@ -12,7 +12,7 @@ const Tab = createBottomTabNavigator();
 export default function Tabs() {
 
   return (
-    <Tab.Navigator {...{ screenOptions, tabBarOptions: { showLabel: false } }}>
+    <Tab.Navigator {...{ screenOptions, screenOptions: { showLabel: false } }}>
       <Tab.Screen name="Home" component={Home} options={{
         headerShown: true,
         tabBarIcon: ({ focused }) => (
@@ -25,9 +25,6 @@ export default function Tabs() {
                 tintColor: focused ? '#43978D' : '#748c94',
               }}
             />
-            <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
-              Home
-            </Text>
           </View>
         )
       }} />
@@ -43,9 +40,6 @@ export default function Tabs() {
                 tintColor: focused ? '#43978D' : '#748c94',
               }}
             />
-            <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
-              Budget
-            </Text>
           </View>
         )
       }} />
@@ -61,9 +55,6 @@ export default function Tabs() {
                 tintColor: focused ? '#43978D' : '#748c94',
               }}
             />
-            <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
-              Analytics
-            </Text>
           </View>
         )
       }} />
@@ -79,9 +70,6 @@ export default function Tabs() {
                 tintColor: focused ? '#43978D' : '#748c94',
               }}
             />
-            <Text style={{ color: focused ? '#43978D' : '#748c94', fontSize: 12 }}>
-              Settings
-            </Text>
           </View>
         )
       }} />
@@ -98,7 +86,7 @@ const screenOptions = {
     elevation: 10,
     shadowOffset: {
       width: 1,
-      height: 1,
+      height: 3,
     },
     shadowColor: '#333',
   }

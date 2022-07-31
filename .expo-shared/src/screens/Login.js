@@ -13,19 +13,19 @@ function Login({ navigation }) {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
-        navigation.navigate('Tabs', { screen: 'Home'})
+        navigation.navigate('Tabs', { screen: 'Home' })
       }
     });
   }, []);
 
-  const navToForget = async() =>{
+  const navToForget = async () => {
     navigation.navigate('ForgetPass')
   }
 
   const onLoginPress = async () => {
     await firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(email.toString().trim(), password)
       .then((response) => {
         const uid = response.user.uid
         const usersRef = firebase.firestore().collection('users')

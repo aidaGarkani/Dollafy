@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   expenses: {
     padding: '1rem',
     backgroundColor: 'rgb(31, 31, 31)',
-    marginBottom: '300px'
+    marginBottom: 300
   },
   expensesTitle: {
     fontWeight: 'bold',

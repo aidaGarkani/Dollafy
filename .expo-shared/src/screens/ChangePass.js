@@ -1,20 +1,20 @@
-import { Image, StyleSheet, Text, View, Button, TouchableOpacity, Alert } from 'react-native';
+import { Image, StyleSheet, View, Alert } from 'react-native';
 import { useState } from 'react';
 import PasswordInput from '../components/UI/PasswordInput';
 import FormButton from '../components/UI/FormButton';
 import { firebase } from '../../../config'
-import ImagePassword from '../../../assets/images/undraw_security_re_a2rk.svg';
+import ImagePassword from '../../../assets/images/undraw_Security_re_a2rk.png';
 
 function ChangePass({ navigation, route }) {
 
   const [curpassword, setCurPassword] = useState();
   const [password, setPassword] = useState();
-  const [confirmpassword, setConfirmPassword] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
   const user = firebase.auth().currentUser;
 
   const updatePassword = async () => {
 
-    if (password !== confirmpassword) {
+    if (password !== confirmPassword) {
       alert("Passwords don't match.")
       return
     } else if (password?.length < 5) {
@@ -50,7 +50,7 @@ function ChangePass({ navigation, route }) {
           />
 
           <PasswordInput
-            labelValue={confirmpassword}
+            labelValue={confirmPassword}
             onChangeText={userConfirmPassword => setConfirmPassword(userConfirmPassword)}
             placeholderText="Confirm Password"
             iconType="lock"

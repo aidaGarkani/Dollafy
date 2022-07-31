@@ -12,7 +12,7 @@ const ExpensesInfo = (props) => {
     return (
         <View style={{ width: '100%' }}>
             <NewExpense
-                modalVisible={modalVisible}
+                visible={modalVisible}
                 setModalVisible={setModalVisible} />
             <Card>
                 <View style={styles.container}>
@@ -33,12 +33,12 @@ export default ExpensesInfo
 
 const styles = StyleSheet.create({
     container: {
-        display: 'block !important',
+        display: 'flex',
         width: '100%',
         padding: 20
     },
     amount: {
-        fontSize: '24px',
+        fontSize: 24,
         fontWeight: 'bold',
         padding: 10
     },
@@ -48,8 +48,7 @@ const styles = StyleSheet.create({
 
     },
     button: {
-        width: '50%',
+        width: '60%',
         borderRadius: 30,
-
     }
 })
