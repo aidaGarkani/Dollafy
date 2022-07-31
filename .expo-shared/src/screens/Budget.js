@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     marginBottom: 300,
   },
   expenses: {
-    padding: '1rem',
+    padding: 5,
     backgroundColor: 'rgb(31, 31, 31)',
     marginBottom: 300
   },

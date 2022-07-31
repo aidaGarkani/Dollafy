@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import NewExpense from '../NewExpense/NewExpense';
 
 const CategoryContainer = (props) => {
@@ -11,17 +11,14 @@ const CategoryContainer = (props) => {
                 modalVisible={modalVisible}
                 setModalVisible={setModalVisible}
                 categoryName={props.name} />
-            <View style={{ height: 80, maxWidth: 130, marginLeft: 15, borderWidth: 0.5, borderColor: '#dddddd', justifyContent: 'center', borderRadius: 10 }}>
-                <View style={{ flex: 1 }}>
-                    <TouchableHighlight onPress={() => setModalVisible(true)}>
-                        <Image source={props.imageUri} style={{
-                            flex: 1, width: 70,
-                            height: 70, resizeMode: 'cover'
-                        }} />
-                    </TouchableHighlight>
-
-                </View>
-            </View >
+            <TouchableOpacity onPress={() => setModalVisible(true)}>
+                <View style={{ height: 80, maxWidth: 130, marginLeft: 15, borderWidth: 0.5, borderColor: '#dddddd', justifyContent: 'center', borderRadius: 10 }}>
+                    <Image source={props.imageUri} style={{
+                        flex: 1, width: 70,
+                        height: 70, resizeMode: 'cover'
+                    }} />
+                </View >
+            </TouchableOpacity>
         </>
 
     )
@@ -36,7 +33,7 @@ const styles = StyleSheet.create({
     },
     containerCategoryView: {
         fontSize: 16,
-        fontWeight: '700',
+        fontWeight: 700,
         paddingHorizontal: 20
     },
     categoryView: {

@@ -12,7 +12,7 @@ const ExpensesInfo = (props) => {
     return (
         <View style={{ width: '100%' }}>
             <NewExpense
-                visible={modalVisible}
+                modalVisible={modalVisible}
                 setModalVisible={setModalVisible} />
             <Card>
                 <View style={styles.container}>
@@ -50,5 +50,6 @@ const styles = StyleSheet.create({
     button: {
         width: '60%',
         borderRadius: 30,
+
     }
 })

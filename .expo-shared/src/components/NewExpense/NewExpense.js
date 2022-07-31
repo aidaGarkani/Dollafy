@@ -40,8 +40,8 @@ export default NewExpense;
 
 const styles = StyleSheet.create({
     newExpense: {
-        padding: '1rem',
-        margin: ' 2rem auto',
+        padding: 5,
+        margin: 5,
         width: ' 95%',
         maxWidth: '95%',
         borderRadius: 12,

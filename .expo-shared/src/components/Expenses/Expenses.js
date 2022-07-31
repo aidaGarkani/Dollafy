@@ -31,7 +31,7 @@ export default Expenses;
 
 const styles = StyleSheet.create({
   expenses: {
-    padding: '1rem',
+    padding: 5,
     backgroundColor: 'rgb(31, 31, 31)',
     marginBottom: 300
   },

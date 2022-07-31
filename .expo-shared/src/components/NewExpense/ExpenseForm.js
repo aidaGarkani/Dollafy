@@ -19,22 +19,21 @@ const ExpenseForm = (props) => {
         <Icon {...props} name='calendar' />
     );
 
-    const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+    const titleChangeHandler = (value) => {
+        setEnteredTitle(value);
     };
-    const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+    const amountChangeHandler = (value) => {
+        setEnteredAmount(value);
     };
 
     const submitHandler = (event) => {
-
         const expenseData = {
             title: enteredTitle,
             amount: +enteredAmount,
             date: date.toString(),
             category: selectedCategory
         };
-
+        console.log(expenseData)
         const { isValid, errorMessage } = validator(expenseData);
         if (!isValid) {
             setError(errorMessage)
@@ -64,7 +63,7 @@ const ExpenseForm = (props) => {
 
 
     return <View>
-        <Modal visible={modalVisible}>
+        <Modal visible={modalVisible} style={styles.modal}>
             <Card disabled={true}>
                 <Text style={styles.errorText}>{error}</Text>
                 <Button
@@ -94,7 +93,7 @@ const ExpenseForm = (props) => {
                     size='medium'
                     placeholder='Expense Title'
                     value={enteredTitle}
-                    onChange={titleChangeHandler}
+                    onChangeText={titleChangeHandler}
                     label='Title'
                 />
             </View>
@@ -104,7 +103,7 @@ const ExpenseForm = (props) => {
                     size='medium'
                     placeholder='Expense Amount'
                     value={enteredAmount}
-                    onChange={amountChangeHandler}
+                    onChangeText={amountChangeHandler}
                     label='Amount'
                 />
 
@@ -115,6 +114,7 @@ const ExpenseForm = (props) => {
             {
                 !props.category &&
                 <Select
+                    style={styles.input}
                     label='Category'
                     value={selectedCategory}
                     placeholder='Select a category'
@@ -143,17 +143,18 @@ const styles = StyleSheet.create({
     newExpenseControls: {
         display: 'flex',
         flexWrap: 'wrap',
-        gap: '1rem',
-        marginBottom: '1rem',
+        gap: 10,
+        marginBottom: 5,
         textAlign: 'left',
     },
     newExpenseActions: {
         textAlign: 'right',
     },
     input: {
-        marginVertical: 2,
+        margin: 10,
         borderColor: '#43978D',
         borderRadius: 20,
+        width: '90%',
     },
     container: {
         minHeight: 360,
@@ -173,6 +174,9 @@ const styles = StyleSheet.create({
     },
     errorButton: {
         color: '#43978D'
+    },
+    modal: {
+        maxWidth: '90%'
     }
 });
 
