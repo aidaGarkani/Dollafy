@@ -5,23 +5,28 @@ export const categoryChart = (category, expenses) => {
     const data = {
         food: {
             color: "#D46C4E",
-            legendFontSize: 12
+            legendFontSize: 12,
+            legendFontColor: '#7F7F7F'
         },
         personal: {
             color: "#264D59",
-            legendFontSize: 12
+            legendFontSize: 12,
+            legendFontColor: '#7F7F7F'
         },
         grocery: {
             color: "#F9AD6A",
-            legendFontSize: 12
+            legendFontSize: 12,
+            legendFontColor: '#7F7F7F'
         },
         transportation: {
             color: "#F9E07F",
-            legendFontSize: 12
+            legendFontSize: 12,
+            legendFontColor: '#7F7F7F'
         },
         income: {
             color: "#43978D",
-            legendFontSize: 12
+            legendFontSize: 12,
+            legendFontColor: '#7F7F7F'
         }
     }
 

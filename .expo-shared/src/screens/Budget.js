@@ -13,27 +13,32 @@ const Budget = (props) => {
   const { expenses, isLoading } = useExpenseContext();
 
   const chartConfig = {
-    backgroundGradientFrom: "#1E2923",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#08130D",
-    backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-    strokeWidth: 2, // optional, default 3
-    barPercentage: 0.5,
-    useShadowColorFromDataset: false // optional
-  };
+    backgroundColor: '#1cc910',
+    backgroundGradientFrom: '#eff3ff',
+    backgroundGradientTo: '#efefef',
+    decimalPlaces: 2,
+    color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+    style: {
+      borderRadius: 16,
+    },
+  }
+
   return (
     <ScrollView style={styles.containerScroll}>
       <View style={styles.wrapper}>
         {expenses && expenses.length > 0 && <View style={styles.container}>
           {!isLoading && < PieChart
             data={categoriesData(expenses)}
-            width={screenWidth}
+            width={Dimensions.get('window').width - 16}
+            style={{
+              marginVertical: 8,
+              borderRadius: 16,
+            }}
             height={200}
             chartConfig={chartConfig}
             accessor={"total"}
             backgroundColor={"transparent"}
-            center={[1, 5]}
+            paddingLeft="15"
             absolute
           />}
         </View>}
